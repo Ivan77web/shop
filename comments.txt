@@ -1,0 +1,48 @@
+1) Подключить firebase
+2) routes и consts бесполезны сейчас
+
+
+
+
+
+
+
+
+
+
+---Получение элементов из БД---
+    import React, { useContext, useEffect } from "react";
+    import { useCollectionData } from 'react-firebase-hooks/firestore';
+    import { Context } from "..";
+
+    const {auth, firestore} = useContext(Context);
+
+    const [COLLECTION, loading] = useCollectionData(
+        firestore.collection("NameCollection")
+    )
+
+    if(loading){
+        return <div>LOADING</div>
+    }
+
+    return(
+        <div>
+            {
+                COLLECTION.map(elem=>
+                    <div>{elem.text}</div>
+                )
+            }
+        </div>
+    )
+
+---Запись элементов в БД---
+    import React, { useEffect, useState, useContext } from "react";
+    import { Context } from "..";
+
+    const {auth, firestore} = useContext(Context);
+
+    const sendElem = async () => {
+        firestore.collection("NameCollection").add({
+            text: value
+        })
+    }

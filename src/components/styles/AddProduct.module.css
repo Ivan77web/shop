@@ -1,0 +1,7 @@
+.addProduct{
+    width: 500px;
+    height: 600px;
+    margin: 50px auto 0;
+    background: rgb(224, 223, 223);
+    border: 1px solid black;
+}
