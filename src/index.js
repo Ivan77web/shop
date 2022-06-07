@@ -13,7 +13,8 @@ firebase.initializeApp(
     storageBucket: "shop-f9d27.appspot.com",
     messagingSenderId: "264104838803",
     appId: "1:264104838803:web:944f0047a43865e5e1ef66",
-    measurementId: "G-DBNPX60FEN"
+    measurementId: "G-DBNPX60FEN",
+    storageBucket: 'gs://shop-f9d27.appspot.com'
   }
 );
 

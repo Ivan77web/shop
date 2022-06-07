@@ -27,10 +27,6 @@ export default function Cart(){
             setLoading(false)
         }
     }, [articleMyCart])
-
-    useEffect(()=>{
-        console.log(myArticle);
-    }, [myArticle])
     
     if(loading || loading_one || loading_two){
         return(
