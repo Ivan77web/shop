@@ -3,32 +3,17 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Context } from "..";
 import cl from "./styles/Cart.module.css"
-import CardProduct from "./CardProduct";
+import ProductOnCart from "./ProductOnCart";
+import Test from "./Test";
 
 export default function Cart(){
     const {auth, firestore} = useContext(Context);
     const [user] = useAuthState(auth);
-    const [products, loading_one] = useCollectionData(
-        firestore.collection("products")
-    )
-    const [articleMyCart, loading_two] = useCollectionData(
+    const [productsMyCart, loading] = useCollectionData(
         firestore.collection(`cart_${user.uid}`)
     )
-    const [myArticle, setMyArticle] = useState([]);
-    const [loading, setLoading] = useState(true)
 
-    useEffect(()=>{
-        if(articleMyCart){
-            let articles = []
-            for(let i = 0; i < articleMyCart.length; i++){
-                articles.push(articleMyCart[i].article)
-            }
-            setMyArticle(articles);
-            setLoading(false)
-        }
-    }, [articleMyCart])
-    
-    if(loading || loading_one || loading_two){
+    if(loading){
         return(
             <div className={cl.cart}>
                 LOADING
@@ -38,11 +23,19 @@ export default function Cart(){
 
     return(
         <div className={cl.cart}>
-            {
-                myArticle.map(article => 
-                    <CardProduct key={article} article={article}/>
-                )
-            }
+
+            <h3 className={cl.header}>
+                Корзина:    
+            </h3>
+
+            <div className={cl.products}>
+                {
+                    productsMyCart.map(product => 
+                        <ProductOnCart product={product}/>
+                    )
+                }
+            </div>
+        
         </div>
     )
 }

@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { Context } from "..";
 import Cart from "./Cart";
 import AddProduct from "./AddProduct";
+import ProductPage from "./ProductPage";
 
 export default function AppRouter(){
     const {auth} = useContext(Context);
@@ -17,10 +18,12 @@ export default function AppRouter(){
     (
         <Routes>
             <Route path="/" element={<Shop/>}/>
-            <Route path="/login" element={<Login/>}/>
+            {/* <Route path="/login" element={<Login/>}/> */}
             <Route path="/profile" element={<Profile/>} />
             <Route path="/cart" element={<Cart/>} />
             <Route path="/addproduct" element={<AddProduct/>} />
+            <Route path="/shop" element={<Shop/>}/>
+            <Route path='/shop/:article' element={<ProductPage/>} />
             <Route path="*" element={<Shop/>}/>
         </Routes>
     )
@@ -29,6 +32,8 @@ export default function AppRouter(){
         <Routes>
             <Route path="/" element={<Shop/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/profile" element={<Profile/>} />
+            <Route path='/shop/:article' element={<ProductPage/>} />
             <Route path="*" element={<Shop/>}/>
         </Routes>
     )

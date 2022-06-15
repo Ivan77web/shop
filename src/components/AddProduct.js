@@ -7,21 +7,27 @@ import cl from "./styles/AddProduct.module.css"
 export default function AddProduct(){
     const {auth, firestore} = useContext(Context);
     const [productPhoto, setProductPhoto] = useState();
-    const [productName, setProductName] = useState("");
-    const [productIntro, setProductIntro] = useState("");
-    const [productSize, setProductSize] = useState("");
-    const [productArticle, setProductArticle] = useState("");
+    const [productBrand, setProductBrand] = useState("");
+    const [productModel, setProductModel] = useState("");
     const [productPrice, setProductPrice] = useState("");
+    const [productSize, setProductSize] = useState("");
+    const [productIntro, setProductIntro] = useState("");
+    const [productArticle, setProductArticle] = useState("");
+    const [productDate, setProductDate] = useState("");
+    const [productGender, setProductGender] = useState("");
     const storage = getStorage();
 
     const addProduct = async () => {
-        if(productPhoto && productName && productIntro && productSize && productArticle && productPrice){
+        if(productPhoto && productBrand && productModel && productPrice && productSize && productIntro && productArticle && productDate && productGender){
             firestore.collection("products").add({
-                name: productName,
-                intro: productIntro,
-                size: productSize,
-                article: productArticle,
+                brand: productBrand,
+                model: productModel,
                 price: productPrice,
+                size: productSize,
+                intro: productIntro,
+                article: productArticle,
+                date: productDate,
+                gender: productGender
             })
     
             firestore.collection("productsArticles").add({
@@ -30,13 +36,15 @@ export default function AddProduct(){
     
             const storageRef = ref(storage, `photo_${productArticle}`);
             uploadBytes(storageRef, productPhoto);
-    
-            setProductPhoto();
-            setProductName("");
-            setProductIntro("");
-            setProductSize("");
-            setProductArticle("");
+
+            setProductBrand("");
+            setProductModel("");
             setProductPrice("");
+            setProductSize("");
+            setProductIntro("");
+            setProductArticle("");
+            setProductDate("");
+            setProductGender("");
         } else {
             alert("Введите все данные о товаре!");
         }
@@ -49,13 +57,18 @@ export default function AddProduct(){
             
             <div className={cl.dataProduct}>
                 <div>
-                    <p>Название товара</p>
-                    <input value={productName} onChange={e => setProductName(e.target.value)}/>
+                    <p>Бренд</p>
+                    <input value={productBrand} onChange={e => setProductBrand(e.target.value)}/>
                 </div>
 
                 <div>
-                    <p>Описание</p>
-                    <input value={productIntro} onChange={e => setProductIntro(e.target.value)}/>
+                    <p>Модель</p>
+                    <input value={productModel} onChange={e => setProductModel(e.target.value)}/>
+                </div>
+
+                <div>
+                    <p>Цена</p>
+                    <input value={productPrice} onChange={e => setProductPrice(e.target.value)}/>
                 </div>
 
                 <div>
@@ -64,13 +77,23 @@ export default function AddProduct(){
                 </div>
 
                 <div>
+                    <p>Описание</p>
+                    <input value={productIntro} onChange={e => setProductIntro(e.target.value)}/>
+                </div>
+
+                <div>
                     <p>Артикул</p>
                     <input value={productArticle} onChange={e => setProductArticle(e.target.value)}/>
                 </div>
 
                 <div>
-                    <p>Цена</p>
-                    <input value={productPrice} onChange={e => setProductPrice(e.target.value)}/>
+                    <p>Дата релиза</p>
+                    <input value={productDate} onChange={e => setProductDate(e.target.value)}/>
+                </div>
+
+                <div>
+                    <p>Пол</p>
+                    <input value={productGender} onChange={e => setProductGender(e.target.value)}/>
                 </div>
 
                 <button onClick={addProduct}>Добавить товар</button>

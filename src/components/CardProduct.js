@@ -3,11 +3,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Context } from "..";
+import { Link } from "react-router-dom";
 import cl from "./styles/CardProduct.module.css"
 
-export default function CardProduct({article, cart}){
+export default function CardProduct({article}){
     const {auth, firestore} = useContext(Context);
-    const [user] = useAuthState(auth);
     const [products, loading] = useCollectionData(
         firestore.collection("products")
     )
@@ -27,13 +27,6 @@ export default function CardProduct({article, cart}){
         }
     },[products])
 
-    const addProductInCart = async (e) => {
-        const article = e.target.closest(`.${cl.card}`).querySelector(`.${cl.article}`).innerHTML;
-        firestore.collection(`cart_${user.uid}`).add({
-            article: article
-        })
-    }
-
     if(loading){
         return(
             <div>LOADING</div>
@@ -42,21 +35,18 @@ export default function CardProduct({article, cart}){
 
     if(rightProduct && src){
         return(
-            <div className={cl.card}>
-                <img src={src} className={cl.photo}/>
-                <h1>{rightProduct.name}</h1>
-                <p>{rightProduct.intro}</p>
-                <p>{rightProduct.size}</p>
-                <p className={cl.article}>{rightProduct.article}</p>
-                <p>{rightProduct.price}&#x20bd;</p>
-                {
-                    cart
-                    ?
-                    <p onClick={e => addProductInCart(e)}>Добавить в корзину</p>
-                    :
-                    <div/>
-                }
-            </div>
+            <Link to={`/shop/${article}`}>
+                <div className={cl.card}>
+                    <img src={src} className={cl.photo}/>
+
+                    <div className={cl.introduction}>
+                        <h1 className={cl.brand}>{rightProduct.brand}</h1>
+                        <p className={cl.model}>{rightProduct.model}</p>
+                        <p className={cl.article}>{rightProduct.article}</p>
+                        <p className={cl.price}>{rightProduct.price}</p>
+                    </div>
+                </div>
+            </Link>
         )
     }
 }

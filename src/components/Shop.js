@@ -23,14 +23,6 @@ export default function Shop(){
         }
     },[productsArticles])
 
-    // const addProductInCart = async (e) => {
-    //     const article = e.target.closest(`.${cl.oneProduct}`).querySelector(`.${cl.article}`).innerHTML;
-        
-    //     firestore.collection(`cart_${user.uid}`).add({
-    //         article: article
-    //     })
-    // }
-
     if(loading || loadingOnlyArticles){
         return <div>Секунду</div>
     }
