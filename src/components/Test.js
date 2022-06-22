@@ -19,6 +19,7 @@ export default function Test(){
     }
 
     const washingtonRef = doc(db, "cities", "LA");
+    
     const testTwo = async () => {
         await updateDoc(washingtonRef, {
             capital: true

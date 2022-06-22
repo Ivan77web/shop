@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Context } from "..";
-import { Link } from "react-router-dom";
+import { Context } from "../..";
 import Login from "./Login";
 
 export default function Profile(){

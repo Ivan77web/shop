@@ -3,11 +3,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useParams } from "react-router";
-import { Context } from "..";
-import cl from "./styles/ProductPage.module.css"
+import { Context } from "../..";
+import cl from "../styles/ProductPage.module.css"
 import TableSize from "./TableSize";
-import MyButton from "./UI/MyButton";
+import MyButton from "../UI/MyButton";
 import { Link } from "react-router-dom";
+import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import ButtonAddProduct from "../UI/ButtonAddProduct";
 
 export default function ProductPage(){
     const {auth, firestore} = useContext(Context);
@@ -38,13 +40,18 @@ export default function ProductPage(){
 
     const addProductInCart = async () => {
         if(inputSize){
-            firestore.collection(`cart_${user.uid}`).add({
+            await setDoc(doc(firestore, `cart_${user.uid}`, `${article}_size${inputSize}`), {
                 article: article,
-                size: inputSize
-            })
+                size: inputSize,
+                number: 1
+            });
         }else{
             setErrorSize(true);
         }
+    }
+
+    const deleteProductOnCart = async () => {
+        await deleteDoc(doc(firestore, `cart_${user.uid}`, `${article}_size${inputSize}`));
     }
 
     if(loading || loadingTwo || !productInfo){
@@ -74,8 +81,8 @@ export default function ProductPage(){
                     {
                         user
                         ?
-                            <div className={cl.button} onClick={addProductInCart}>
-                                <MyButton width="100%" height="50px" bgColor="rgb(145, 22, 22)" color="white" name="Добавить в корзину"/>
+                            <div className={cl.button}>
+                                <ButtonAddProduct user={user} inputSize={inputSize} article={article} addProductInCart={addProductInCart} deleteProductOnCart={deleteProductOnCart}/>
                             </div>
                         :
                             <Link to="/profile">

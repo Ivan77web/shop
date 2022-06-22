@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import cl from "./styles/AddPhotoProducts.module.css"
+import cl from "../styles/AddPhotoProducts.module.css"
 
 export default function AddPhotoProducts({setProductPhoto}){
     const [input, setInput] = useState();

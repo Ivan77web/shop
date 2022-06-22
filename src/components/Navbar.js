@@ -20,18 +20,14 @@ export default function Navbar(){
                 user ?
                 <div className={cl.links}>
                     <Link to="/" className={cl.link}>Магазин</Link>
-                    {/* <div className={cl.link} onClick={()=> auth.signOut()}>Выйти</div> */}
                     <Link to="/profile" className={cl.link}>Профиль</Link>
                     <Link to="/cart" className={cl.link}>Корзина</Link>
                     <Link to="/addproduct" className={cl.link}>Добавить товар</Link>
-                    {/* <img style={{width: "50px", background:"white", height: "50px"}} src={iconProfile}/> */}
-                    {/* <img src={iconSneakers}/> */}
                 </div>
                 :
                 <div className={cl.links}>
                     <Link to="/" className={cl.link}>Магазин</Link>
                     <Link to="/profile" className={cl.link}>Профиль</Link>
-                    {/* <Link to="/login" className={cl.link}>Логин</Link> */}
                 </div>
             }
         </div>

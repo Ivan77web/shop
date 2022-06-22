@@ -4,6 +4,7 @@ import App from './App';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 firebase.initializeApp(
   {

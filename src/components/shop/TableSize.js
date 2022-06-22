@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import arrow from "../icons/arrow.png"
-import cl from "./styles/TableSize.module.css"
+import arrow from "../../icons/arrow.png"
+import cl from "../styles/TableSize.module.css"
 
 export default function TableSize({errorSize, setErrorSize, inputSize, setInputSize, arrSizes}){
     const [menu, setMenu] = useState(false)

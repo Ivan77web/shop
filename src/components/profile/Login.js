@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { Context } from "..";
+import { Context } from "../..";
 import firebase from 'firebase/compat/app';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import cl from "./styles/Login.module.css"
+import cl from "../styles/Login.module.css"
 
 export default function Login(){
     const {auth} = useContext(Context);

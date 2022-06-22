@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { Context } from "..";
-import cl from "./styles/Shop.module.css"
+import { Context } from "../..";
+import cl from "../styles/Shop.module.css"
 import CardProduct from "./CardProduct";
 
 export default function Shop(){

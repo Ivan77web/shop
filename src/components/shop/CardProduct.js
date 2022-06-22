@@ -1,13 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { Context } from "..";
+import { Context } from "../..";
 import { Link } from "react-router-dom";
-import cl from "./styles/CardProduct.module.css"
+import cl from "../styles/CardProduct.module.css"
 
 export default function CardProduct({article}){
-    const {auth, firestore} = useContext(Context);
+    const {firestore} = useContext(Context);
     const [products, loading] = useCollectionData(
         firestore.collection("products")
     )
@@ -43,7 +42,7 @@ export default function CardProduct({article}){
                         <h1 className={cl.brand}>{rightProduct.brand}</h1>
                         <p className={cl.model}>{rightProduct.model}</p>
                         <p className={cl.article}>{rightProduct.article}</p>
-                        <p className={cl.price}>{rightProduct.price}</p>
+                        <p className={cl.price}>{rightProduct.price} руб.</p>
                     </div>
                 </div>
             </Link>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { getStorage, ref, uploadBytes, getDownloadURL, getMetadata } from "firebase/storage";
-import { Context } from "..";
+import { Context } from "../..";
 import AddPhotoProducts from "./AddPhotoProducts";
-import cl from "./styles/AddProduct.module.css"
+import cl from "../styles/AddProduct.module.css"
 
 export default function AddProduct(){
     const {auth, firestore} = useContext(Context);

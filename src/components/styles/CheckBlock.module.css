@@ -1,0 +1,73 @@
+.checkBlockMain{
+    font-size: 14px;
+    max-width: 50%;
+    height:fit-content;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.checkBlock{
+    background: white;
+    font-size: 14px;
+    max-width: 100%;
+    height:fit-content;
+    box-shadow: 0px -0px 4px rgb(41, 41, 41);
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.intro{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.table{
+    padding: 10px;
+}
+
+.trOneTable{
+    height: 30px;
+    text-align: center;
+}
+
+.tableBrand{
+    min-width: 100px;
+    height: 40px;
+    border-bottom: 1px solid rgb(117, 117, 117);
+}
+
+.tableModel{
+    width: 400px;
+    height: 40px;
+    border-bottom: 1px solid rgb(117, 117, 117);
+}
+
+.tableNumber{
+    width: 100px;
+    height: 40px;
+    border-bottom: 1px solid rgb(117, 117, 117);
+}
+
+.tablePrice{
+    width: 100px;
+    height: 40px;
+    border-bottom: 1px solid rgb(117, 117, 117);
+}
+
+.tableTwo{
+    padding: 10px;
+}
+
+.tdTwoTable{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+
+.priceTwoTable{
+    text-align: right;
+}

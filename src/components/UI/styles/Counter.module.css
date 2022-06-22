@@ -1,0 +1,45 @@
+button{
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.counter{
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    right: 350px;
+    top: 45px;
+    display: flex;
+    font-size: 30px;
+}
+
+.num{
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto;
+}
+
+.decrement{
+    margin-top: 14px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(161, 161, 161);
+    border-radius: 100%; 
+    line-height: 28px; 
+    text-align: center;
+}
+
+.increment{
+    margin-top: 14px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(161, 161, 161);
+    border-radius: 100%;
+    line-height: 30px;
+    text-align: center;
+}
