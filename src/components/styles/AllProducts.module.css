@@ -1,0 +1,28 @@
+.allProducts{
+    position: relative;
+    width: 75%;
+}
+
+.intro{
+    font-size: 26px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.products{
+    margin-left: 30px;
+    width: 100%;
+}
+
+.filterInput{
+    margin-left: 30px;
+    width: 100%;
+}
+
+.textError{
+    width:fit-content;
+    margin: 0 auto;
+    margin-top: 30px;
+    font-size: 20px;
+}

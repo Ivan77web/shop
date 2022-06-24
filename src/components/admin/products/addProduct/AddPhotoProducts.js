@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import cl from "../styles/AddPhotoProducts.module.css"
+import cl from "../../../styles/AddPhotoProducts.module.css"
+
 
 export default function AddPhotoProducts({setProductPhoto}){
     const [input, setInput] = useState();
@@ -20,12 +21,16 @@ export default function AddPhotoProducts({setProductPhoto}){
 
             for(let i = 0; i < curFiles.length; i++) {
                 const listItem = document.createElement('li');
+                listItem.style.listStyleType = "none"
                 
                 if(validFileType(curFiles[i])) {
                     const image = document.createElement('img');
+                    const textAddPhoto = document.querySelector(`.${cl.textAddPhoto}`)
+
                     image.classList.add(cl.photo) // стили фото
                     image.src = window.URL.createObjectURL(curFiles[i]); // вот тут все происходит
                     listItem.appendChild(image);
+                    textAddPhoto.classList.add(cl.active)
                 }
   
                 list.appendChild(listItem);
@@ -54,15 +59,17 @@ export default function AddPhotoProducts({setProductPhoto}){
     return(
         <form className={cl.addPhotoProducts} method="post" encType="multipart/form-data">
 
-            <div>
-                <label htmlFor="image_uploads">Добавить фото (PNG, JPG)</label>
+            <div className={cl.inputInBlock}>
+                {/* <label htmlFor="image_uploads">Добавить фото (PNG, JPG)</label> */}
                 <input className={cl.input} onChange={updateImageDisplay} type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png"/> 
             </div>
 
             <div className={cl.blockPhoto}>
-                
+                <label className={cl.textAddPhoto} htmlFor="image_uploads">Добавить фото (PNG, JPG)</label>
             </div>
 
         </form>
     )
 }
+
+

@@ -3,12 +3,12 @@ import './App.css';
 import AppRouter from './components/AppRouter';
 import Navbar from "./components/Navbar"
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from ".";
 
 function App() {
   const {auth} = useContext(Context);
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loadingRoutes, setLoadingRoutes] = useState(true);
 
@@ -17,7 +17,9 @@ function App() {
         if(user.email == "ivanshestopalov39@gmail.com" && user.displayName == "Макс Белый"){
             setIsAdmin(true);
         }
-        setLoadingRoutes(false)
+    }else{
+      setIsAdmin(false)
+      setLoadingRoutes(false)
     }
   }, [user])
 
@@ -31,8 +33,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar/>
-      <AppRouter/>
+      <Navbar isAdmin={isAdmin}/>
+      <AppRouter user={user} isAdmin={isAdmin}/>
     </BrowserRouter>
   );
 }

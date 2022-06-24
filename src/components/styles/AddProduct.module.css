@@ -1,8 +1,28 @@
 .addProduct{
-    width: 900px;
+    position: relative;
+    width: 70%;
     height: 600px;
-    margin: 50px auto 0;
-    background: rgb(224, 223, 223);
-    border: 1px solid black;
+    margin: 50px 50px 0;
+    /* background: rgb(224, 223, 223); */
+    background: rgb(243, 243, 243);
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 10px;
     display: flex;
+}
+
+.dataProduct{
+    width: 40%;
+    margin-top: 40px;
+}
+
+.oneInputBlock{
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.buttonAdd{
+    position: absolute;
+    width: 20%;
+    bottom: 47px;
+    /* margin: 0 auto; */
 }

@@ -1,0 +1,70 @@
+.sidebar{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 20%;
+    height: 80vh;
+    background: white;
+    padding-top: 30px;
+    border-top: 1px solid rgb(165, 165, 165);
+    border-left: 1px solid rgb(165, 165, 165);
+    border-bottom: 1px solid rgb(165, 165, 165);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;   
+    -khtml-user-select: none;    
+    -moz-user-select: none;      
+    -ms-user-select: none;       
+    user-select: none;                  
+}
+
+.link{
+    margin-left: 35px;
+    background: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.linkProducts{
+    margin-left: 20px;
+    background: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.linkToggle{
+    margin-left: 30px;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.headerProducts{
+    cursor: pointer;
+}
+
+.imgArrow{
+    width: 10px;
+    height: auto;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.imgClose{
+    rotate: 90deg;
+}
+
+.imgClose{
+    rotate: 0;
+}
+
+.products{
+    display: grid;
+}
+
+.active{
+    display: none;
+}

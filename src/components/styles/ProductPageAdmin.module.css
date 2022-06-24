@@ -1,0 +1,74 @@
+.productCard{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    max-height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border: solid rgb(165, 165, 165) 1px;
+    border-radius: 10px;
+    background: white;
+    overflow-y: auto;
+}
+
+.info{
+    display: flex;
+    width: 80%;
+}
+
+.data{
+    color: black;
+}
+
+.settings{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    height:fit-content;
+}
+
+.productCard::-webkit-scrollbar {
+    width: 0;
+}
+
+.img{
+    width: auto;
+    height: 100px;
+}
+
+.table{
+    width: 100%;
+}
+
+.edit{
+    width: 90%;
+    margin-left: 50px;
+    padding-right: 30px;
+}
+
+.inputEdit{
+    display: flex;
+    line-height: 50px;
+}
+
+.buttonEdit{
+    margin-bottom: 20px;
+}
+
+.buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.buttons .buttonCancel{
+    margin-right: 20px;
+}
+
+.active{
+    display: none;
+}
