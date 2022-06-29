@@ -1,0 +1,19 @@
+.loader{
+    position: absolute;
+    top: 50vh;
+    margin-top: -200px;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.photo{
+    position: relative;
+    height: 230px;
+    width: auto;
+    left: -50px;
+    top: -20px;
+}

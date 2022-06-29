@@ -8,6 +8,7 @@ import cl from "../styles/Check.module.css"
 import DataBlock from "./DataBlock";
 
 import { collection, addDoc } from "firebase/firestore"; 
+import Loader from "../UI/loader/Loader";
 
 export default function Check() {
     const {auth, firestore} = useContext(Context);
@@ -37,7 +38,8 @@ export default function Check() {
     const addOrder = async () => {
         if(valueRadio == "online"){
             if(email && lastname && name && number && adress && valueRadio && cardNumber && cardDate && cardName && cardCVV){
-                await setDoc(doc(firestore.collection("orders").doc(`orders_${user.uid}`), `order_${(new Date().getFullYear() + "_" + (new Date().getMonth()+1) + "_" + new Date().getDate() + "-" + new Date().getHours() + ":" +  new Date().getMinutes()  + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds())}`, "order"), {
+                const time = `order_${(new Date().getFullYear() + "_" + (new Date().getMonth()+1) + "_" + new Date().getDate() + "-" + new Date().getHours() + ":" +  new Date().getMinutes()  + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds())}`
+                await setDoc(doc(firestore.collection("orders").doc(`orders_${user.uid}`), time, "order"), {
                     data: {
                         email: email,
                         lastname: lastname,
@@ -53,7 +55,13 @@ export default function Check() {
                         cardCVV: cardCVV,
                     },
                     products: productsMyCart,
-                    allPrice: allPrice
+                    allPrice: allPrice,
+                    status: "wait"
+                });
+
+                await setDoc(doc(firestore.collection("ordersId"), `user_${user.uid}_${time}`), {
+                    userId: `orders_${user.uid}`,
+                    time: time
                 });
     
                 setEmail("");
@@ -71,7 +79,8 @@ export default function Check() {
 
         } else if(valueRadio == "offline"){
             if(email && lastname && name && number && adress && valueRadio){
-                await setDoc(doc(firestore.collection("orders").doc(`orders_${user.uid}`), `order_${(new Date().getFullYear() + "_" + (new Date().getMonth()+1) + "_" + new Date().getDate() + "-" + new Date().getHours() + ":" +  new Date().getMinutes()  + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds())}`, "order"), {
+                const time = `order_${(new Date().getFullYear() + "_" + (new Date().getMonth()+1) + "_" + new Date().getDate() + "-" + new Date().getHours() + ":" +  new Date().getMinutes()  + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds())}`
+                await setDoc(doc(firestore.collection("orders").doc(`orders_${user.uid}`), time, "order"), {
                     data: {
                         email: email,
                         lastname: lastname,
@@ -81,7 +90,13 @@ export default function Check() {
                         method_payment: valueRadio,
                     },
                     products: productsMyCart,
-                    allPrice: allPrice
+                    allPrice: allPrice,
+                    status: "wait"
+                });
+
+                await setDoc(doc(firestore.collection("ordersId"), `user_${user.uid}_${time}`), {
+                    userId: `orders_${user.uid}`,
+                    time: time
                 });
     
                 setEmail("");
@@ -108,7 +123,7 @@ export default function Check() {
         if(products && productsMyCart){
             let price = 0;
 
-            productsMyCart.map(product => 
+            productsMyCart.map(product =>
                 price += Number(searchDataProductInAllProduct(product.article).price * product.number)
             ) 
 
@@ -118,7 +133,7 @@ export default function Check() {
 
     if(loadingOne || loadingTwo || !allPrice){
         return(
-            <div>LOADING</div>
+            <Loader/>
         )
     }
 

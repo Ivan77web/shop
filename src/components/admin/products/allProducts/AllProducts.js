@@ -5,6 +5,7 @@ import { Context } from "../../../..";
 import ProductPageAdmin from "./ProductPageAdmin";
 import cl from "../../../styles/AllProducts.module.css"
 import MyInput from "../../../UI/MyInput";
+import Loader from "../../../UI/loader/Loader";
 
 export default function AllProducts() {
     const {auth, firestore} = useContext(Context);
@@ -26,9 +27,7 @@ export default function AllProducts() {
 
     if(loading, !filterProducts){
         return(
-            <div>
-                LOADING
-            </div>
+            <Loader/>
         )
     }
 

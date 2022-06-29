@@ -6,6 +6,7 @@ import cl from "../styles/Cart.module.css"
 import ProductOnCart from "./ProductOnCart";
 import MyButton from "../UI/MyButton";
 import { Link } from "react-router-dom";
+import Loader from "../UI/loader/Loader";
 
 export default function Cart(){
     const {auth, firestore} = useContext(Context);
@@ -17,7 +18,7 @@ export default function Cart(){
     if(loading){
         return(
             <div className={cl.cart}>
-                LOADING
+                <Loader/>
             </div>
         )
     }

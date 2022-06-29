@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import Counter from "../UI/Counter";
 import Price from "./Price";
+import Loader from "../UI/loader/Loader";
 
 export default function ProductOnCart({product}){
     const {auth, firestore} = useContext(Context);
@@ -38,7 +39,7 @@ export default function ProductOnCart({product}){
 
     if(loading){
         return(
-            <div>LOADING</div>
+            <Loader/>
         )
     }
 

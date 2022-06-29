@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext, useEffect, useState } from 'react';
 import { Context } from ".";
+import Loader from './components/UI/loader/Loader';
 
 function App() {
   const {auth} = useContext(Context);
@@ -25,9 +26,7 @@ function App() {
 
   if(loadingRoutes){
     return(
-        <div>
-            LOADING
-        </div>
+        <Loader/>
     )
   }
 

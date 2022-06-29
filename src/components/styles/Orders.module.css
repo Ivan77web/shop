@@ -1,0 +1,55 @@
+.orders{
+    position: relative;
+    width: 80%;
+    /* background: #000; */
+}
+
+.intro{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.filters{
+    height: 180px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.inputsFilter{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.tableButtons{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.allButtons{
+    color: rgb(82, 82, 82);;
+}
+
+.oneFilter{
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    color: rgb(82, 82, 82);;
+}
+
+.oneFilter:hover{
+    color: black;
+    background: white;
+    /* border: 1px solid white; */
+}
+
+.activeFilter{
+    color: black;
+    background: white;
+    border: 1px solid teal;
+}

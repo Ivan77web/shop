@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../..";
 import cl from "../styles/Price.module.css"
+import Loader from "../UI/loader/Loader";
 
 export default function Price({user, product, price}) {
     const {firestore} = useContext(Context);
@@ -31,9 +32,7 @@ export default function Price({user, product, price}) {
 
     if(loading){
         return(
-            <div>
-                LOADING
-            </div>
+            <Loader/>
         )
     }
 

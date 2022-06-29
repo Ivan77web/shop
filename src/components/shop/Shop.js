@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Context } from "../..";
 import cl from "../styles/Shop.module.css"
+import Loader from "../UI/loader/Loader";
 import CardProduct from "./CardProduct";
 
 export default function Shop(){
@@ -24,7 +25,7 @@ export default function Shop(){
     },[productsArticles])
 
     if(loading || loadingOnlyArticles){
-        return <div>Секунду</div>
+        return <Loader/>
     }
 
     return(

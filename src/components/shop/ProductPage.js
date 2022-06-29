@@ -10,6 +10,7 @@ import MyButton from "../UI/MyButton";
 import { Link } from "react-router-dom";
 import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import ButtonAddProduct from "../UI/ButtonAddProduct";
+import Loader from "../UI/loader/Loader";
 
 export default function ProductPage(){
     const {auth, firestore} = useContext(Context);
@@ -55,7 +56,7 @@ export default function ProductPage(){
     }
 
     if(loading || loadingTwo || !productInfo){
-        <div>Загрузка</div>
+        <Loader/>
     }
 
     if(productInfo && src){

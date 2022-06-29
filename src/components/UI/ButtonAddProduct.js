@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../..";
+import Loader from "./loader/Loader";
 import MyButton from "./MyButton";
 import cl from "./styles/ButtonAddProduct.module.css"
 
@@ -33,9 +34,7 @@ export default function ButtonAddProduct({user, inputSize, article, addProductIn
 
     if(loading){
         return(
-            <div>
-                loading
-            </div>
+            <Loader/>
         )
     }
 

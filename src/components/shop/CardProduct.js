@@ -4,6 +4,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Context } from "../..";
 import { Link } from "react-router-dom";
 import cl from "../styles/CardProduct.module.css"
+import Loader from "../UI/loader/Loader";
 
 export default function CardProduct({article}){
     const {firestore} = useContext(Context);
@@ -28,7 +29,7 @@ export default function CardProduct({article}){
 
     if(loading){
         return(
-            <div>LOADING</div>
+            <Loader/>
         )
     }
 
