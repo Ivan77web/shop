@@ -1,0 +1,47 @@
+.oneUser{
+    width: 80%;
+    height: 100px;
+    margin: 15px auto;
+    border: solid rgb(165, 165, 165) 1px;
+    border-radius: 10px;
+    display: flex;
+
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;   
+    -khtml-user-select: none;    
+    -moz-user-select: none;      
+    -ms-user-select: none;       
+    user-select: none;           
+}
+
+.table{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.correctStatus{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.textStatus{
+    cursor: pointer;
+}
+
+.options{
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: solid rgb(165, 165, 165) 1px;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+}
+
+.option{
+    border-radius: 5px;
+}
+
+.active{
+    display: none;
+}

@@ -1,7 +1,21 @@
 .login{
-    width: 500px;
+    width: 300px;
     height: 500px;
-    background: rgb(226, 166, 166);
     margin: 0 auto;
     margin-top: 100px;
+    border: solid rgb(165, 165, 165) 1px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px grey;
+}
+
+.intro{
+    font-size: 22px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.button{
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 200px;
 }

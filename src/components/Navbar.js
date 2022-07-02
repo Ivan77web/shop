@@ -7,7 +7,7 @@ import { Context } from "..";
 import iconProfile from "../icons/profileIcon.png"
 import iconSneakers from "../icons/sneakersIcon.png"
 
-export default function Navbar({isAdmin}){
+export default function Navbar({userData}){
     const {auth} = useContext(Context);
     const [user, loading, error] = useAuthState(auth);
 
@@ -17,14 +17,13 @@ export default function Navbar({isAdmin}){
             <div className={cl.logo}>Кроксы с дырочками</div>
 
             {
-                isAdmin
+                userData.status == "admin" || userData.status == "mainAdmin"
                 ?
                     <div className={cl.links}>
                         <Link to="/" className={cl.link}>Магазин</Link>
                         <Link to="/profile" className={cl.link}>Профиль</Link>
                         <Link to="/cart" className={cl.link}>Корзина</Link>
                         <Link to="/admin/" className={cl.link}>Панель админа</Link>
-                        {/* <Link to="/addproduct" className={cl.link}>Добавить товар</Link> */}
                     </div>  
                 :  
                     user 

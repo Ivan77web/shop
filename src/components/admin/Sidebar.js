@@ -17,7 +17,7 @@ export default function Sidebar(){
         <div className={cl.sidebar}>
 
             <div className={cl.link}>
-                <Link to="myaccount">Моя страницы</Link>
+                <Link to="myaccount">Моя страница</Link>
             </div>
 
             <div className={cl.linkProducts}>

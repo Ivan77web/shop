@@ -6,34 +6,39 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext, useEffect, useState } from 'react';
 import { Context } from ".";
 import Loader from './components/UI/loader/Loader';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 
 function App() {
-  const {auth} = useContext(Context);
+  const {auth, firestore} = useContext(Context);
   const [user, loading] = useAuthState(auth);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [loadingRoutes, setLoadingRoutes] = useState(true);
+  const [userData, setUserData] = useState({})
+  const [allUsers] = useCollectionData(
+    firestore.collection("allUsers")
+  )
 
   useEffect(()=>{
-    if(user){
-        if(user.email == "ivanshestopalov39@gmail.com" && user.displayName == "Макс Белый"){
-            setIsAdmin(true);
+    if(allUsers && user != null){
+      allUsers.map( elem => {
+        if(elem.name == user.displayName && elem.email == user.email){
+          if(elem.name == "Макс Белый" && elem.email == "ivanshestopalov39@gmail.com"){
+            setDoc(doc(firestore, "allUsers", `user_${elem.id}`), {
+              name: elem.name,
+              email: elem.email,
+              id: elem.id,
+              status: "mainAdmin"
+            });
+          }
+          setUserData(elem)
         }
-    }else{
-      setIsAdmin(false)
-      setLoadingRoutes(false)
+      })
     }
-  }, [user])
-
-  if(loadingRoutes){
-    return(
-        <Loader/>
-    )
-  }
+  }, [allUsers, user])
 
   return (
     <BrowserRouter>
-      <Navbar isAdmin={isAdmin}/>
-      <AppRouter user={user} isAdmin={isAdmin}/>
+      <Navbar userData={userData}/>
+      <AppRouter userData={userData}/>
     </BrowserRouter>
   );
 }

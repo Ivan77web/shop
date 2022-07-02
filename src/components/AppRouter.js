@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./profile/Login";
 import Shop from "./shop/Shop";
@@ -14,9 +14,21 @@ import OurUsers from "./admin/ourUsers/OurUsers";
 import OurAdmins from "./admin/ourAdmins/OurAdmins";
 import AddProduct from "./admin/products/addProduct/AddProduct";
 import AllProducts from "./admin/products/allProducts/AllProducts";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Context } from "..";
+import Loader from "./UI/loader/Loader";
 
-export default function AppRouter({user, isAdmin}){
-    return isAdmin 
+export default function AppRouter({userData}){
+    const {auth, firestore} = useContext(Context);
+    const [user, loading] = useAuthState(auth);
+
+    if(loading){
+        return(
+            <Loader/>
+        )
+    }
+
+    return userData.status == "admin" || userData.status == "mainAdmin"
         ?
             (
                 <Routes>

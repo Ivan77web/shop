@@ -1,0 +1,16 @@
+.myAccount{
+    width: 80%;
+}
+
+.intro{
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.table{
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 5px;
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 10px;
+}
