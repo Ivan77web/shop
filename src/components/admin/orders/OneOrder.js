@@ -68,8 +68,6 @@ export default function OneOrder({id, filter}) {
         }
     }, [dataOrder])
 
-    // console.log(textStatus);
-
     if(loading){
         return(
             <Loader/>
@@ -80,7 +78,6 @@ export default function OneOrder({id, filter}) {
         (textStatus == filter.statusOrder || filter.statusOrder == "") &&
         (`Заказ № orders/${id.userId}/${id.time}`.includes(filter.number) || filter.number== "" ) &&
         (`${dataOrder[0].data.name} ${dataOrder[0].data.lastname}`.includes(filter.name) || filter.name == "")
-    
     ){
         return(
             <div className={cl.cardOrder}>

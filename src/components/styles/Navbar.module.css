@@ -7,10 +7,63 @@
 }
 
 .criteria{
+    display: flex;
     line-height: 58px;
     margin-left: 30px;
     background: white;
 }
+
+.oneCriterion{
+    position: relative;
+    display: flex;
+    width: 100px;
+}
+
+.oneCriterion:hover{
+    border-bottom: 1px solid black;
+}
+
+.cross{
+    cursor: pointer;
+    position: absolute;
+    height: 15px;
+    width: auto;
+    top: 20px;
+    left: 40px;
+    z-index: -1;
+    rotate: 45deg;
+}
+
+.criterion{
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.criterionOne, .criterionTwo, .criterionThree{
+    color: black;
+}
+
+.criterionActive{
+    border-bottom: 1px solid black;
+}
+
+.criterionActive:hover .criterion{
+    color: white;
+}
+
+.criterionActive:hover .cross{
+    z-index: 1000;
+}
+
+
+
+
+
+
+
 
 .logo{
     position: absolute;

@@ -1,0 +1,56 @@
+.filterBrand{
+    width: 220px;
+    /* height: 200px; */
+    margin: 20px;
+    /* background: rgb(242, 242, 245); */
+}
+
+.brands{
+    width: 220px;
+    max-height: 140px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: rgb(242, 242, 245);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.brands::-webkit-scrollbar {
+    width: 0;
+}
+
+.oneBrand{
+    width: 90%;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.oneBrand:hover{
+    background: rgb(212, 212, 212);
+}
+
+.brandName{
+    margin-left: 10px;
+}
+
+.input{
+    width: 200px;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    display: block;
+    margin: 0 auto;
+    background: rgb(242, 242, 245);;
+}
+
+.active{
+    display: none;
+}

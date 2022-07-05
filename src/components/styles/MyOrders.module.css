@@ -1,0 +1,48 @@
+.myOrders{
+    background: rgb(242, 242, 245);
+
+}
+
+.intro{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.filters{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.oneFilter{
+    display: flex;
+}
+
+.twoFilter{
+    display: flex;
+}
+
+.buttonStatus{
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    margin: 10px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 10px;
+}
+
+.activeButtonStatus{
+    color: white;
+    border: 1px solid rgb(145, 22, 22);
+    background: rgb(145, 22, 22);
+    transition: all ease 0.2s;
+}
+
+.buttonStatus:hover{
+    color: white;
+    border: 1px solid rgb(160, 110, 110);
+    background: rgb(160, 110, 110);
+    transition: all ease 0.2s;
+}

@@ -6,7 +6,6 @@ import Profile from "./profile/Profile";
 import Cart from "./cart/Cart";
 import ProductPage from "./shop/ProductPage";
 import Check from "./check/Check";
-
 import Admin from "./admin/Admin";
 import MyAccount from "./admin/myAccount/MyAccount";
 import Orders from "./admin/orders/Orders";
@@ -17,8 +16,9 @@ import AllProducts from "./admin/products/allProducts/AllProducts";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Context } from "..";
 import Loader from "./UI/loader/Loader";
+import MyOrders from "./myOrders/MyOrders";
 
-export default function AppRouter({userData}){
+export default function AppRouter({userData, brandNavBar}){
     const {auth, firestore} = useContext(Context);
     const [user, loading] = useAuthState(auth);
 
@@ -32,7 +32,7 @@ export default function AppRouter({userData}){
         ?
             (
                 <Routes>
-                    <Route path="/" element={<Shop/>}/>
+                    <Route path="/" element={<Shop brandNavBar={brandNavBar} />}/>
                     <Route path="/profile" element={<Profile/>} />
                     <Route path="/cart" element={<Cart/>} />
 
@@ -46,10 +46,11 @@ export default function AppRouter({userData}){
                         <Route path="allproducts" element={<AllProducts/>} />
                     </Route>
 
-                    <Route path="/shop" element={<Shop/>}/>
+                    <Route path="/shop" element={<Shop brandNavBar={brandNavBar} />}/>
                     <Route path='/shop/:article' element={<ProductPage/>} />
                     <Route path='/check' element={<Check/>} />
-                    <Route path="*" element={<Shop/>}/>
+                    <Route path='/myOrders' element={<MyOrders/>} />
+                    <Route path="*" element={<Shop brandNavBar={brandNavBar} />}/>
                 </Routes>
             )
         :
@@ -57,23 +58,24 @@ export default function AppRouter({userData}){
             ?  
                 (
                     <Routes>
-                        <Route path="/" element={<Shop/>}/>
+                        <Route path="/" element={<Shop brandNavBar={brandNavBar} />}/>
                         <Route path="/profile" element={<Profile/>} />
                         <Route path="/cart" element={<Cart/>} />
-                        <Route path="/shop" element={<Shop/>}/>
+                        <Route path="/shop" element={<Shop brandNavBar={brandNavBar} />}/>
                         <Route path='/shop/:article' element={<ProductPage/>} />
                         <Route path='/check' element={<Check/>} />
-                        <Route path="*" element={<Shop/>}/>
+                        <Route path="*" element={<Shop brandNavBar={brandNavBar} />}/>
+                        <Route path='/myOrders' element={<MyOrders/>} />
                     </Routes>
                 )
             :
                 (
                     <Routes>
-                        <Route path="/" element={<Shop/>}/>
+                        <Route path="/" element={<Shop brandNavBar={brandNavBar} />}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/profile" element={<Profile/>} />
                         <Route path='/shop/:article' element={<ProductPage/>} />
-                        <Route path="*" element={<Shop/>}/>
+                        <Route path="*" element={<Shop brandNavBar={brandNavBar} />}/>
                     </Routes>
                 )
 }

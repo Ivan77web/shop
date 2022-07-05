@@ -7,7 +7,6 @@ import cl from "../../../styles/AddProduct.module.css"
 import MyInput from '../../../UI/MyInput'
 import MyButton from "../../../UI/MyButton";
 
-
 export default function AddProduct(){
     const {auth, firestore} = useContext(Context);
     const [productPhoto, setProductPhoto] = useState();
@@ -71,6 +70,10 @@ export default function AddProduct(){
 
             await setDoc(doc(firestore, "productsArticles", `product_${productArticle}`), {
                 article: productArticle
+            });
+
+            await setDoc(doc(firestore, "productsBrand", `product_${productArticle}`), {
+                brand: productBrand
             });
 
             const storageRef = ref(storage, `photo_${productArticle}`);

@@ -1,0 +1,11 @@
+.filters{
+    width: 300px;
+    height: 560px;
+    cursor: pointer;
+    margin-top: 20px;
+    left: 0;
+    background: white;;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 2px 5px rgb(156, 156, 156);
+}

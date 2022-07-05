@@ -25,11 +25,11 @@ export default function ProductPageAdmin({product}) {
 
         await deleteDoc(doc(firestore, `productsArticles`, `product_${product.article}`));
 
-        deleteObject(desertRef).then(() => {
-            console.log("Удалено успешно");
-          }).catch((error) => {
-            console.log("Произошла ошибка - " + error);
-          });
+        // deleteObject(desertRef).then(() => {
+        //     console.log("Удалено успешно");
+        //   }).catch((error) => {
+        //     console.log("Произошла ошибка - " + error);
+        //   });
     }
 
     const editProduct = e => {

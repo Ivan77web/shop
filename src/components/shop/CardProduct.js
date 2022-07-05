@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import cl from "../styles/CardProduct.module.css"
 import Loader from "../UI/loader/Loader";
 
-export default function CardProduct({article}){
+export default function CardProduct({article, mainFilter}){
     const {firestore} = useContext(Context);
     const [products, loading] = useCollectionData(
         firestore.collection("products")
@@ -30,6 +30,19 @@ export default function CardProduct({article}){
     if(loading){
         return(
             <Loader/>
+        )
+    }
+
+    if(
+        (rightProduct.brand != mainFilter.brand && mainFilter.brand != "" && mainFilter.brand != "Не выбрано") ||
+        ( Number(rightProduct.price) < mainFilter.startPrice && mainFilter.startPrice != "") ||
+        ( Number(rightProduct.price) > mainFilter.endPrice && mainFilter.endPrice != "") ||
+        (rightProduct.gender != mainFilter.gender && mainFilter.gender != "" && mainFilter.gender != "Не выбрано") ||
+        (rightProduct.brand != mainFilter.brandNavBar && mainFilter.brandNavBar != "") 
+
+    ){
+        return(
+            <div/>
         )
     }
 

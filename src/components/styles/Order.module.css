@@ -1,0 +1,72 @@
+.order{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(117, 117, 117);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.numberOrder{
+
+}
+
+.status{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.data{
+    display: flex;
+    cursor: pointer;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;   
+    -khtml-user-select: none;    
+    -moz-user-select: none;      
+    -ms-user-select: none;       
+    user-select: none;           
+}
+
+.photoArrowClose{
+    height: 15px;
+    width: auto;
+    margin-top: 2px;
+    margin-right: 10px;
+
+    transition: all ease 0.4s;
+}
+
+.photoArrowOpen{
+    margin-right: 10px;
+    rotate: 90deg;
+    margin-top: 3px;
+    height: 15px;
+    width: auto;
+
+    transition: all ease 0.4s;
+}
+
+.buttonData{
+
+}
+
+.allData{
+
+}
+
+.tables{
+    display: flex;
+}
+
+.tableProduct{
+    margin-left: 10px;
+    margin-right: 40px;
+}
+
+.tableData{
+}
+
+.active{
+    display: none;
+}

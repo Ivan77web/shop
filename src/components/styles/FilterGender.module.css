@@ -1,0 +1,81 @@
+.filterGender{
+    margin: 20px;
+    width: 220px;
+    /* height: 30px; */
+    /* background: white; */
+    background: rgb(242, 242, 245);
+    border-bottom: 1px solid rgb(242, 242, 245);
+    border-radius: 10px;
+    line-height: 30px;
+    /* padding-left: 20px; */
+
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;   
+    -khtml-user-select: none;    
+    -moz-user-select: none;      
+    -ms-user-select: none;       
+    user-select: none;
+}
+
+.introGender{
+    position: relative;
+    display: flex;
+    margin-left: 20px;
+    /* padding-left: 5px; */
+}
+
+.openMenu{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.arrowImg{
+    transition: all ease 0.5s;
+    position: absolute;
+    height: 20px;
+    width: auto;
+    top: 5px;
+    right: 15px;
+    rotate: 90deg;
+}
+
+.activeImg{
+    transition: all ease 0.5s;
+    rotate: 270deg;
+}
+
+.genders{
+    width: 220px;
+    height: 130px;
+    /* background: white; */
+    background: rgb(242, 242, 245);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    /* border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black; */
+}
+
+.variants{
+    /* margin-left: 20px; */
+    /* padding-right: 20px; */
+}
+
+.variant{
+    width: 100%;
+    width: 180px;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.variant:hover{
+    background: rgb(212, 212, 212);
+}
+
+.active{
+    display: none;
+}
