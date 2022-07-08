@@ -1,6 +1,7 @@
 .check{
     display: flex;
     background: rgb(242, 242, 245);
-    height: 100vh;
+    height: fit-content;
+    min-height: calc(100vh - 59px);
 }
 

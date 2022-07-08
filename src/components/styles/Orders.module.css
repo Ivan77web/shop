@@ -1,7 +1,8 @@
 .orders{
     position: relative;
     width: 80%;
-    /* background: #000; */
+    min-height: calc(100vh - 59px);
+
 }
 
 .intro{
@@ -45,7 +46,6 @@
 .oneFilter:hover{
     color: black;
     background: white;
-    /* border: 1px solid white; */
 }
 
 .activeFilter{

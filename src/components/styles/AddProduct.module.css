@@ -1,9 +1,14 @@
+.allWindow{
+    height: calc(100vh - 59px);
+    overflow: hidden;
+    width: 100%;
+}
+
 .addProduct{
     position: relative;
     width: 70%;
     height: 600px;
     margin: 50px 50px 0;
-    /* background: rgb(224, 223, 223); */
     background: rgb(243, 243, 243);
     border: 1px solid rgb(165, 165, 165);
     border-radius: 10px;
@@ -24,5 +29,4 @@
     position: absolute;
     width: 20%;
     bottom: 47px;
-    /* margin: 0 auto; */
 }

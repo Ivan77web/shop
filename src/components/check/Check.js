@@ -13,16 +13,13 @@ import Loader from "../UI/loader/Loader";
 export default function Check() {
     const {auth, firestore} = useContext(Context);
     const [user] = useAuthState(auth);
-
     const [allPrice, setAllPrice] = useState(0)
-
     const [email, setEmail] = useState("");
     const [lastname, setLastname] = useState("");
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const [adress, setAdress] = useState("");
     const [valueRadio, setValueRadio] = useState("online");
-
     const [cardNumber, setCardNumber] = useState("");
     const [cardDate, setCardDate] = useState("");
     const [cardName, setCardName] = useState("");

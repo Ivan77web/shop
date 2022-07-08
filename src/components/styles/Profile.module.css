@@ -1,0 +1,30 @@
+.profile{
+    background: rgb(242, 242, 245);
+    height: calc(100vh - 59px);
+    overflow: hidden;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.dataBlock{
+    position: relative;
+    display: flex;
+}
+
+.blockOne{
+    position: absolute;
+    left: 0;
+}
+
+.blockTwo{
+    position: absolute;
+    right: 0;
+}
+
+.logout{
+    color: rgb(145, 22, 22);
+}

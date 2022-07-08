@@ -1,0 +1,21 @@
+.cross{
+    position: relative;
+}
+
+.one{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border: 1px solid black;
+    rotate: 45deg;
+}
+
+.two{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border: 1px solid black;
+    rotate: 135deg;
+}

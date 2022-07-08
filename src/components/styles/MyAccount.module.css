@@ -1,5 +1,7 @@
 .myAccount{
     width: 80%;
+    height: calc(100vh - 59px);
+    overflow: hidden;
 }
 
 .intro{

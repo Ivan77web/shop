@@ -1,5 +1,6 @@
 .ourAdmins{
     width: 80%;
+    min-height: calc(100vh - 59px);
 }
 
 .intro{

@@ -6,13 +6,11 @@ export default function TableSize({errorSize, setErrorSize, inputSize, setInputS
     const [menu, setMenu] = useState(false)
     const sizes = arrSizes.split(",")
     const [styleForElem, setStyleForElem] = useState("")
-
     const open = (e) => {
         if( !(e.target.classList.contains(`${cl.sizeMenu}`)) && !(e.target.classList.contains(`${cl.elemSize}`)) ){
             setMenu(!menu)
         }
     }
-
     const choiceSize = (e) => {
         setInputSize(e.target.innerHTML);
         setErrorSize(false);
@@ -30,7 +28,6 @@ export default function TableSize({errorSize, setErrorSize, inputSize, setInputS
     }, [inputSize, errorSize])
 
     return(
-        // <div onClick={open} className= {inputSize != null ? `${cl.TableSize} ${cl.TableSizeActive}` :  cl.TableSize}>
         <div onClick={open} className= {styleForElem}>
             {
                 inputSize

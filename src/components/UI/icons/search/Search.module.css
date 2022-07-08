@@ -1,0 +1,22 @@
+.search{
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.circle{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 100%;
+}
+
+.foot{
+    position: absolute;
+    height: 10px;
+    top: 14px;
+    left: 19px;
+    border: 1px solid black;
+    rotate: 135deg;
+}

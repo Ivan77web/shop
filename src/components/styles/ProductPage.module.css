@@ -2,6 +2,7 @@
     background: rgb(242, 242, 245);
     display: flex;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 .introduction{
@@ -9,9 +10,15 @@
     width: 40%;
 }
 
-.photo{
-    margin-top: 100px;
+.photoBlock{
+    position: relative;
     width: 60%;
+}
+
+.photo{
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
     height: auto;
 }
 

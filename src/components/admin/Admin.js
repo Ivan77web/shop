@@ -7,7 +7,6 @@ export default function Admin() {
     return(
         <div className={cl.admin}>
             <Outlet/>
-            
             <Sidebar/>
         </div>
     )

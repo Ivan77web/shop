@@ -3,7 +3,6 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../..";
 import Loader from "./loader/Loader";
 import MyButton from "./MyButton";
-import cl from "./styles/ButtonAddProduct.module.css"
 
 export default function ButtonAddProduct({user, inputSize, article, addProductInCart, deleteProductOnCart}){
     const {firestore} = useContext(Context);

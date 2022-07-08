@@ -5,12 +5,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { Context } from "..";
 import cross from "../icons/crossBlack.png"
-import iconProfile from "../icons/profileIcon.png"
-import iconSneakers from "../icons/sneakersIcon.png"
+import UserLogo from "../components/UI/icons/user/UserLogo"
+import CartLogo from "./UI/icons/cart/CartLogo";
+import AdminLogo from "./UI/icons/admin/AdminLogo";
 
 export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
     const { auth } = useContext(Context);
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const choiceCriterion = e => {
         setBrandNavbar(e.target.closest(`.${cl.criterion}`).innerHTML)
     }
@@ -63,31 +64,43 @@ export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
 
             </div>
 
-            <div className={cl.logo}>Кроксы с дырочками</div>
+            <Link to="/" className={cl.link}>
+                <div className={cl.logo}>Кроксы с дырочками</div>
+            </Link>
 
             {
                 userData.status == "admin" || userData.status == "mainAdmin"
                     ?
                     <div className={cl.links}>
-                        <Link to="/" className={cl.link}>Магазин</Link>
-                        <Link to="/profile" className={cl.link}>Профиль</Link>
-                        <Link to="/cart" className={cl.link}>Корзина</Link>
-                        <Link to="/myOrders" className={cl.link}>Мои заказы</Link>
-                        <Link to="/admin/" className={cl.link}>Панель админа</Link>
+                        <Link to="/profile" className={cl.link}>
+                            <UserLogo />
+                        </Link>
+
+                        <Link to="/cart" className={cl.link}>
+                            <CartLogo />
+                        </Link>
+
+                        <Link to="/admin/" className={cl.link}>
+                            <AdminLogo />
+                        </Link>
                     </div>
                     :
                     user
                         ?
                         <div className={cl.links}>
-                            <Link to="/" className={cl.link}>Магазин</Link>
-                            <Link to="/profile" className={cl.link}>Профиль</Link>
-                            <Link to="/cart" className={cl.link}>Корзина</Link>
-                            <Link to="/myOrders" className={cl.link}>Мои заказы</Link>
+                            <Link to="/profile" className={cl.link}>
+                                <UserLogo />
+                            </Link>
+
+                            <Link to="/cart" className={cl.link}>
+                                <CartLogo />
+                            </Link>
                         </div>
                         :
                         <div className={cl.links}>
-                            <Link to="/" className={cl.link}>Магазин</Link>
-                            <Link to="/profile" className={cl.link}>Профиль</Link>
+                            <Link to="/profile" className={cl.link}>
+                                <UserLogo />
+                            </Link>
                         </div>
             }
         </div>

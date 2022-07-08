@@ -165,7 +165,6 @@ export default function OneOrder({id, filter}) {
     
                 <div className={cl.status}>
                     <div className={cl.statusBlock}>
-                        {/* {translateStatus(dataOrder[0].status)} */}
                         {textStatus}
                     </div>
     

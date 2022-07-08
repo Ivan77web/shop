@@ -8,10 +8,6 @@
     padding: 10px;
 }
 
-.numberOrder{
-
-}
-
 .status{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -47,14 +43,6 @@
     transition: all ease 0.4s;
 }
 
-.buttonData{
-
-}
-
-.allData{
-
-}
-
 .tables{
     display: flex;
 }
@@ -62,9 +50,6 @@
 .tableProduct{
     margin-left: 10px;
     margin-right: 40px;
-}
-
-.tableData{
 }
 
 .active{

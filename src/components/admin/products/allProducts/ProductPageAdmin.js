@@ -6,8 +6,8 @@ import { Context } from "../../../..";
 import MyInput from "../../../UI/MyInput";
 import MyButton from "../../../UI/MyButton";
 
-export default function ProductPageAdmin({product}) {
-    const {firestore} = useContext(Context);
+export default function ProductPageAdmin({ product }) {
+    const { firestore } = useContext(Context);
     const storage = getStorage();
     const [src, setSrc] = useState();
     const [brand, setBrand] = useState(product.brand);
@@ -19,18 +19,18 @@ export default function ProductPageAdmin({product}) {
     const [gender, setGender] = useState(product.gender);
 
     const deleteProduct = async () => {
-        const desertRef = ref(storage, `photo_${product.article}`);
+        // const desertRef = ref(storage, `photo_${product.article}`);
 
-        await deleteDoc(doc(firestore, `products`, `product_${product.article}`));
+        // await deleteDoc(doc(firestore, `products`, `product_${product.article}`));
 
-        await deleteDoc(doc(firestore, `productsArticles`, `product_${product.article}`));
+        // await deleteDoc(doc(firestore, `productsArticles`, `product_${product.article}`));
 
-        // deleteObject(desertRef).then(() => {
-        //     console.log("Удалено успешно");
-        //   }).catch((error) => {
-        //     console.log("Произошла ошибка - " + error);
-        //   });
+        // deleteObject(desertRef);
+
+        await deleteDoc(doc(firestore, `productsForShop`, `product_${product.article}`));
     }
+
+    // Удаление товара, так как удаляем не из всех продуктов, а из продуктов "для магазина", то остальное закомментил
 
     const editProduct = e => {
         const card = e.target.closest(`.${cl.productCard}`)
@@ -42,7 +42,7 @@ export default function ProductPageAdmin({product}) {
         edit.classList.toggle(cl.active)
         buttonEdit.classList.add(cl.active)
 
-		card.style.maxHeight = "1000px";
+        card.style.maxHeight = "1000px";
     }
 
     const cancel = e => {
@@ -59,7 +59,7 @@ export default function ProductPageAdmin({product}) {
     }
 
     const save = async () => {
-        if(brand && model && price && size && intro && date && gender){
+        if (brand && model && price && size && intro && date && gender) {
             await updateDoc(doc(firestore, "products", `product_${product.article}`), {
                 brand: brand,
                 date: date,
@@ -71,17 +71,17 @@ export default function ProductPageAdmin({product}) {
             });
 
             cancel()
-        } else{
+        } else {
             alert("Требуется ввести все измененные данные")
         }
     }
 
     getDownloadURL(ref(storage, `photo_${product.article}`)).then((url) => setSrc(url));
 
-    return(
+    return (
         <div className={cl.productCard}>
             <div className={cl.info}>
-                <img className={cl.img} src={src}/>
+                <img className={cl.img} src={src} />
 
                 <div className={cl.data}>
                     <div>
@@ -170,49 +170,49 @@ export default function ProductPageAdmin({product}) {
                     <tbody>
                         <tr>
                             <td>Бренд - </td>
-                            <td><MyInput width="70%" height="30px" name="Бренд" fontSize="15px" value={brand} onChange={setBrand}/></td>
+                            <td><MyInput width="70%" height="30px" name="Бренд" fontSize="15px" value={brand} onChange={setBrand} /></td>
                         </tr>
 
                         <tr>
                             <td>Модель - </td>
-                            <td><MyInput width="70%" height="30px" name="Модель" fontSize="15px" value={model} onChange={setModel}/></td>
+                            <td><MyInput width="70%" height="30px" name="Модель" fontSize="15px" value={model} onChange={setModel} /></td>
                         </tr>
 
                         <tr>
                             <td>Цена - </td>
-                            <td><MyInput width="70%" height="30px" name="Цена" fontSize="15px" value={price} onChange={setPrice}/></td>
+                            <td><MyInput width="70%" height="30px" name="Цена" fontSize="15px" value={price} onChange={setPrice} /></td>
                         </tr>
 
                         <tr>
                             <td>Размеры - </td>
-                            <td><MyInput width="70%" height="30px" name="Размеры" fontSize="15px" value={size} onChange={setSize}/></td>
+                            <td><MyInput width="70%" height="30px" name="Размеры" fontSize="15px" value={size} onChange={setSize} /></td>
                         </tr>
 
                         <tr>
                             <td>Дата релиза - </td>
-                            <td><MyInput width="70%" height="30px" name="Дата релиза" fontSize="15px" value={date} onChange={setDate}/></td>
+                            <td><MyInput width="70%" height="30px" name="Дата релиза" fontSize="15px" value={date} onChange={setDate} /></td>
                         </tr>
 
                         <tr>
                             <td>Пол - </td>
-                            <td><MyInput width="70%" height="30px" name="Пол" fontSize="15px" value={gender} onChange={setGender}/></td>
+                            <td><MyInput width="70%" height="30px" name="Пол" fontSize="15px" value={gender} onChange={setGender} /></td>
                         </tr>
 
                         <tr>
                             <td>Описание - </td>
-                            <td><MyInput width="70%" height="30px" name="Описание" fontSize="15px" value={intro} onChange={setIntro}/></td>
+                            <td><MyInput width="70%" height="30px" name="Описание" fontSize="15px" value={intro} onChange={setIntro} /></td>
                         </tr>
-                            
+
                     </tbody>
                 </table>
 
                 <div className={cl.buttons}>
                     <div className={cl.buttonCancel} onClick={e => cancel(e)}>
-                        <MyButton width="100px" height="30px" bgColor="rgb(145, 22, 22)" color="white" name="Отменить"/>
+                        <MyButton width="100px" height="30px" bgColor="rgb(145, 22, 22)" color="white" name="Отменить" />
                     </div>
-                        
+
                     <div className={cl.buttonSave} onClick={save}>
-                        <MyButton width="100px" height="30px" bgColor="rgb(94, 139, 99)" color="white" name="Сохранить"/>
+                        <MyButton width="100px" height="30px" bgColor="rgb(94, 139, 99)" color="white" name="Сохранить" />
                     </div>
                 </div>
             </div>

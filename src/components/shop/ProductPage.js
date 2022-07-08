@@ -62,7 +62,9 @@ export default function ProductPage(){
     if(productInfo && src){
         return(
             <div className={cl.productPage}>
-                <img src={src} className={cl.photo}/>
+                <div className={cl.photoBlock}>
+                    <img src={src} className={cl.photo}/>
+                </div>
 
                 <div className={cl.introduction}>
                     <div className={cl.brand}>

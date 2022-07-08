@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from "react";
 import arrow from "../../icons/arrow.png"
 import cl from "../styles/FilterGender.module.css"
 

@@ -9,8 +9,14 @@ import Loader from "../../../UI/loader/Loader";
 
 export default function AllProducts() {
     const {auth, firestore} = useContext(Context);
+
+    // const [products, loading] = useCollectionData(
+    //     firestore.collection("products")
+    // ) 
+    //Сейчас удаление происходит только из дублирующей коллекции productsForShop
+
     const [products, loading] = useCollectionData(
-        firestore.collection("products")
+        firestore.collection("productsForShop")
     )
     const [filter, setFilter] = useState("")
     const [filterProducts, setFilterProducts] = useState();

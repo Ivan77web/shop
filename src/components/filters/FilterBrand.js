@@ -71,7 +71,6 @@ export default function FilterBrand({ rightBrand, setRightBrand }) {
     return (
         <div className={cl.filterBrand}>
 
-            {/* <MyInput width="280px" height="30px" name="Бренд" fontSize="14px" value={valueInput} onChange={setValueInput} /> */}
             <input className={cl.input} placeholder="Бренд" value={valueInput} onChange={e => changeValue(e.target.value, e)} />
 
             <div className={cl.brands}>
@@ -96,7 +95,6 @@ export default function FilterBrand({ rightBrand, setRightBrand }) {
                         <div />
                 }
             </div>
-
         </div>
     )
 }

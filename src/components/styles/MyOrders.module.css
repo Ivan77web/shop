@@ -1,10 +1,11 @@
 .myOrders{
     background: rgb(242, 242, 245);
-
+    min-height: calc(100vh - 80px);
+    height: fit-content;
 }
 
 .intro{
-    margin-top: 20px;
+    padding-top: 20px;
     margin-bottom: 30px;
     text-align: center;
 }

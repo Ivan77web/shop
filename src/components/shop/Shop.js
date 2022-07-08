@@ -8,9 +8,16 @@ import Filters from "./Filters";
 
 export default function Shop({brandNavBar}) {
     const { auth, firestore } = useContext(Context);
+
+    // const [productsArticles, loading] = useCollectionData(
+    //     firestore.collection("productsArticles")
+    // ) 
+    // Проблема с удалением, сейчас удаляет из дублирующей коллекции productsForShop
+
     const [productsArticles, loading] = useCollectionData(
-        firestore.collection("productsArticles")
+        firestore.collection("productsForShop")
     )
+
     const [loadingOnlyArticles, setLoadingOnlyArticles] = useState(true);
     const [onlyArticles, setOnlyArticles] = useState([]);
 

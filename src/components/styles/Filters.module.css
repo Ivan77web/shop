@@ -1,6 +1,25 @@
+.closeWindow{
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    cursor: pointer;
+    margin-top: 20px;
+    background: white;;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 2px 5px rgb(156, 156, 156);
+}
+
+.search{
+    margin-top: 18px;
+    margin-left: 18px;
+}
+
 .filters{
-    width: 300px;
-    height: 560px;
+    position: relative;
+    width: 260px;
+    height: fit-content;
     cursor: pointer;
     margin-top: 20px;
     left: 0;
@@ -8,4 +27,15 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 0px 2px 5px rgb(156, 156, 156);
+}
+
+.chahgeOfSize{
+    margin-top: 20px;
+    margin-left: 218px;
+    margin-right: 20px;
+    height: 22px;
+}
+
+.filtersBlock{
+    margin-top: 20px;
 }

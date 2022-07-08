@@ -42,6 +42,7 @@ export default function Order({ order, buttonStatus}) {
                 prod = product;
             }
         })
+
         return prod;
     }
 
@@ -89,7 +90,9 @@ export default function Order({ order, buttonStatus}) {
                             {
                                 dataOrder[0].products.map(product =>
                                     <tr key={product.article}>
-                                        <td style={{textAlign: "center"}}>{searchByArticle(product.article).brand + " " + searchByArticle(product.article).model}</td>
+                                        <td style={{textAlign: "center"}}>
+                                            {searchByArticle(product.article).brand + " " + searchByArticle(product.article).model}
+                                        </td>
                                         <td style={{textAlign: "center"}}>{product.size}</td>
                                         <td style={{textAlign: "center"}}>{product.number}</td>
                                     </tr>

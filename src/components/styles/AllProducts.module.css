@@ -1,6 +1,7 @@
 .allProducts{
     position: relative;
     width: 75%;
+    min-height: calc(100vh - 59px);
 }
 
 .intro{
