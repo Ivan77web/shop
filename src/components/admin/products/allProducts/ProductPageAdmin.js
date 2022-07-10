@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getStorage, ref, getDownloadURL, deleteObject } from "firebase/storage";
 import cl from "../../../styles/ProductPageAdmin.module.css"
 import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { Context } from "../../../..";
 import MyInput from "../../../UI/MyInput";
 import MyButton from "../../../UI/MyButton";
+import Loader from "../../../UI/loader/Loader";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
 export default function ProductPageAdmin({ product }) {
     const { firestore } = useContext(Context);
@@ -17,6 +19,12 @@ export default function ProductPageAdmin({ product }) {
     const [intro, setIntro] = useState(product.intro);
     const [date, setDate] = useState(product.date);
     const [gender, setGender] = useState(product.gender);
+    const [products, loading] = useCollectionData(
+        firestore.collection("products")
+    )
+    const [rightProduct, setRightProduct] = useState({});
+
+    // console.log(product);
 
     const deleteProduct = async () => {
         // const desertRef = ref(storage, `photo_${product.article}`);
@@ -58,7 +66,7 @@ export default function ProductPageAdmin({ product }) {
         card.style.maxHeight = "200px";
     }
 
-    const save = async () => {
+    const save = async (e) => {
         if (brand && model && price && size && intro && date && gender) {
             await updateDoc(doc(firestore, "products", `product_${product.article}`), {
                 brand: brand,
@@ -70,13 +78,29 @@ export default function ProductPageAdmin({ product }) {
                 size: size
             });
 
-            cancel()
+            cancel(e)
         } else {
             alert("Требуется ввести все измененные данные")
         }
     }
 
+    useEffect(() => {
+        if(!loading){
+            products.map( prod =>{
+                if(product.article == prod.article){
+                    setRightProduct(prod)
+                }
+            })
+        }
+    }, [loading])
+
     getDownloadURL(ref(storage, `photo_${product.article}`)).then((url) => setSrc(url));
+
+    if(loading){
+        return(
+            <Loader/>
+        )
+    }
 
     return (
         <div className={cl.productCard}>
@@ -85,85 +109,38 @@ export default function ProductPageAdmin({ product }) {
 
                 <div className={cl.data}>
                     <div>
-                        Артикул - {product.article}
+                        Артикул - {rightProduct.article}
                     </div>
 
                     <div>
-                        Бренд - {product.brand}
+                        Бренд - {rightProduct.brand}
                     </div>
 
                     <div>
-                        Модель - {product.model}
+                        Модель - {rightProduct.model}
                     </div>
 
                     <div>
-                        Цена - {product.price}
+                        Цена - {rightProduct.price}
                     </div>
 
                     <div>
-                        Размеры - {product.size}
+                        Размеры - {rightProduct.size}
                     </div>
 
                     <div>
-                        Дата релиза - {product.date}
+                        Дата релиза - {rightProduct.date}
                     </div>
 
                     <div>
-                        Пол - {product.gender}
+                        Пол - {rightProduct.gender}
                     </div>
 
                     <div>
-                        Описание - {product.intro}
+                        Описание - {rightProduct.intro}
                     </div>
                 </div>
             </div>
-
-            {/* <div className={cl.edit + " " + cl.active}>
-                <div className={cl.inputEdit}>
-                    Бренд -
-                    <MyInput width="70%" height="30px" name="Бренд" fontSize="15px" value={brand} onChange={setBrand}/>
-                </div>
-
-                <div className={cl.inputEdit}>
-                    Модель - 
-                    <MyInput width="70%" height="30px" name="Модель" fontSize="15px" value={model} onChange={setModel}/>
-                </div>
-
-                <div className={cl.inputEdit}>
-                    Цена - 
-                    <MyInput width="70%" height="30px" name="Цена" fontSize="15px" value={price} onChange={setPrice}/>
-                </div>
-
-                <div className={cl.inputEdit}>
-                    Размеры - 
-                    <MyInput width="70%" height="30px" name="Размеры" fontSize="15px" value={size} onChange={setSize}/>
-                </div>
-
-                <div className={cl.inputEdit}>
-                    Дата релиза - 
-                    <MyInput width="70%" height="30px" name="Дата релиза" fontSize="15px" value={date} onChange={setDate}/>
-                </div>
-
-                <div className={cl.inputEdit}>
-                    Пол - 
-                    <MyInput width="70%" height="30px" name="Пол" fontSize="15px" value={gender} onChange={setGender}/>
-                </div>
-
-                <div className={cl.inputEdit}>
-                    Описание - 
-                    <MyInput width="70%" height="30px" name="Описание" fontSize="15px" value={intro} onChange={setIntro}/>
-                </div>
-
-                <div className={cl.buttons}>
-                    <div onClick={e => cancel(e)}>
-                        <MyButton width="100px" height="30px" bgColor="rgb(145, 22, 22)" color="white" name="Отменить"/>
-                    </div>
-                    
-                    <div onClick={save}>
-                        <MyButton width="100px" height="30px" bgColor="rgb(94, 139, 99)" color="white" name="Сохранить"/>
-                    </div>
-                </div>
-            </div> */}
 
             <div className={cl.edit + " " + cl.active}>
                 <table className={cl.table}>
@@ -211,7 +188,7 @@ export default function ProductPageAdmin({ product }) {
                         <MyButton width="100px" height="30px" bgColor="rgb(145, 22, 22)" color="white" name="Отменить" />
                     </div>
 
-                    <div className={cl.buttonSave} onClick={save}>
+                    <div className={cl.buttonSave} onClick={e => save(e)}>
                         <MyButton width="100px" height="30px" bgColor="rgb(94, 139, 99)" color="white" name="Сохранить" />
                     </div>
                 </div>

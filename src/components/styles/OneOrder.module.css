@@ -29,6 +29,10 @@
     margin-bottom: 30px;
 }
 
+.status{
+    color: black;
+}
+
 .statusBlock{
     margin-top: 10px;
     padding: 5px;

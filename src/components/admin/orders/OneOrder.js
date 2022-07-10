@@ -41,6 +41,9 @@ export default function OneOrder({id, filter}) {
     const openMenu = (e) => {
         const menu = e.target.closest(`.${cl.status}`).querySelector(`.${cl.allStatuses}`);
         menu.classList.toggle(cl.active);
+
+        // const menu = e.target.closest(`.${cl.status}`).querySelector(`.${cl.allStatuses}`);
+        // console.log(menu);
     }
 
     const changeStatus = e => {

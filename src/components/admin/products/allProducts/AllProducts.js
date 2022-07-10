@@ -12,7 +12,7 @@ export default function AllProducts() {
 
     // const [products, loading] = useCollectionData(
     //     firestore.collection("products")
-    // ) 
+    // )
     //Сейчас удаление происходит только из дублирующей коллекции productsForShop
 
     const [products, loading] = useCollectionData(
