@@ -28,6 +28,12 @@ export default function FilterBrand({ rightBrand, setRightBrand }) {
         variants.classList.remove(cl.active)
     }
 
+    const validateBrand = (value, e) => {
+        if (!(rightBrand === "" && value === " ")) {
+            changeValue(value, e);
+        }
+    }
+
     useEffect(() => { // Функция для создания массива всех брендов
         if (productsBrand) {
             let filterArr = [];
@@ -68,7 +74,7 @@ export default function FilterBrand({ rightBrand, setRightBrand }) {
     return (
         <div className={cl.filterBrand}>
 
-            <input className={cl.input} placeholder="Бренд" value={rightBrand} onChange={e => changeValue(e.target.value, e)} />
+            <input className={cl.input} placeholder="Бренд" value={rightBrand} onChange={e => validateBrand(e.target.value, e)} />
 
             <div className={cl.brands}>
                 {

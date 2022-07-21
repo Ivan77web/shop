@@ -22,8 +22,11 @@
     margin-top: 60px;
 }
 
-.addCart{
-    cursor: pointer;
+.introAbsence{
+    width: 100%;
+    height: fit-content;
+    margin-top: 200px;
+    text-align: center;
 }
 
 .article{

@@ -12,6 +12,9 @@ export default function Shop({ brandNavBar }) {
     //     firestore.collection("productsArticles")
     // ) 
     // Проблема с удалением, сейчас удаляет из дублирующей коллекции productsForShop
+    const [products, loadingTwo] = useCollectionData(
+        firestore.collection("products")
+    )
     const [productsArticles, loading] = useCollectionData(
         firestore.collection("productsForShop")
     )
@@ -21,10 +24,8 @@ export default function Shop({ brandNavBar }) {
     const [startPrice, setStartPrice] = useState("");
     const [endPrice, setEndPrice] = useState("");
     const [rightBrand, setRightBrand] = useState("");
-
-    const [absence, setAbsence] = useState(true)
-    // const [loadingCheck, setLoadingCheck] = useState(true)
-
+    const [absence, setAbsence] = useState(true);
+    const [loadingCheck, setLoadingCheck] = useState(true)
     const [mainFilter, setMainFilter] = useState({
         brandNavBar: brandNavBar,
         filterGender: filterGender,
@@ -32,6 +33,7 @@ export default function Shop({ brandNavBar }) {
         endPrice: endPrice,
         rightBrand: rightBrand
     })
+
     function checkFilter(rightProduct, mainFilter) {
         if (
             (!(rightProduct.brand.toLowerCase().includes(mainFilter.brand.toLowerCase())) && mainFilter.brand !== "") ||
@@ -42,9 +44,20 @@ export default function Shop({ brandNavBar }) {
         ) {
             return false;
         } else {
-            // setAbsence(true);
             return true;
         }
+    }
+
+    function searchRightProduct(article) {
+        let productRight;
+
+        products.map(product => {
+            if (article === product.article) {
+                productRight = product;
+            }
+        })
+
+        return productRight;
     }
 
     useEffect(() => {
@@ -68,18 +81,20 @@ export default function Shop({ brandNavBar }) {
         }
     }, [productsArticles])
 
-    // useEffect( () => {
-    //     if(onlyArticles){
-    //         onlyArticles.map( article => {
-    //             if(checkFilter(article)){
-    //                 setAbsence(true);
-    //             }
-    //         })
-    //         setLoadingCheck(false)
-    //     }
-    // }, [onlyArticles, mainFilter])
+    useEffect(() => {
+        if (onlyArticles) {
+            setAbsence(false);
 
-    if (loading || loadingOnlyArticles) {
+            onlyArticles.map(article => {
+                if (checkFilter(searchRightProduct(article), mainFilter)) {
+                    setAbsence(true);
+                }
+            })
+            setLoadingCheck(false)
+        }
+    }, [onlyArticles, mainFilter])
+
+    if (loading || loadingOnlyArticles || loadingTwo || loadingCheck) {
         return <Loader />
     }
 
@@ -94,7 +109,7 @@ export default function Shop({ brandNavBar }) {
 
             {
                 absence
-                ?
+                    ?
                     <div className={cl.products}>
                         {
                             onlyArticles.map(article =>
@@ -104,11 +119,12 @@ export default function Shop({ brandNavBar }) {
                                     cart={true}
                                     mainFilter={mainFilter}
                                     checkFilter={checkFilter}
+                                    searchRightProduct={searchRightProduct}
                                 />
                             )
                         }
                     </div>
-                :
+                    :
                     <div className={cl.introAbsence}>
                         К сожалению, по вашим критериям товаров нет
                     </div>
