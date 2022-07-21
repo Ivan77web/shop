@@ -1,0 +1,22 @@
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+
+    font-size: 12px;
+}
+
+.img{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.price{
+    color: rgb(145, 22, 22);
+}

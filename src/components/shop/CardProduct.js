@@ -6,51 +6,62 @@ import { Link } from "react-router-dom";
 import cl from "../styles/CardProduct.module.css"
 import Loader from "../UI/loader/Loader";
 
-export default function CardProduct({article, mainFilter}){
-    const {firestore} = useContext(Context);
+export default function CardProduct({ article, mainFilter, checkFilter }) {
+    const { firestore } = useContext(Context);
     const [products, loading] = useCollectionData(
         firestore.collection("products")
     )
-    const [rightProduct, setRightProduct] = useState({});
+    const [rightProduct, setRightProduct] = useState({
+        brand: "",
+        price: "",
+        gender: "",
+        label: [],
+    });
     const storage = getStorage();
     const [src, setSrc] = useState();
 
     getDownloadURL(ref(storage, `photo_${article}`)).then((url) => setSrc(url));
 
-    useEffect(()=>{
-        if(products){
+    useEffect(() => {
+        if (products) {
             products.map(product => {
-                if(article == product.article){
+                if (article === product.article) {
                     setRightProduct(product);
                 }
             })
         }
-    },[products])
+    }, [products])
 
-    if(loading){
-        return(
-            <Loader/>
+    if (loading) {
+        return (
+            <Loader />
         )
     }
 
-    if(
-        (rightProduct.brand != mainFilter.brand && mainFilter.brand != "" && mainFilter.brand != "Не выбрано") ||
-        ( Number(rightProduct.price) < mainFilter.startPrice && mainFilter.startPrice != "") ||
-        ( Number(rightProduct.price) > mainFilter.endPrice && mainFilter.endPrice != "") ||
-        (rightProduct.gender != mainFilter.gender && mainFilter.gender != "" && mainFilter.gender != "Не выбрано") ||
-        (rightProduct.brand != mainFilter.brandNavBar && mainFilter.brandNavBar != "") 
+    // if(
+    //     ( !(rightProduct.brand.toLowerCase().includes(mainFilter.brand.toLowerCase())) && mainFilter.brand !== "") ||
+    //     ( Number(rightProduct.price) < mainFilter.startPrice && mainFilter.startPrice !== "") ||
+    //     ( Number(rightProduct.price) > mainFilter.endPrice && mainFilter.endPrice !== "") ||
+    //     (rightProduct.gender !== mainFilter.gender && mainFilter.gender !== "" && mainFilter.gender !== "Не выбрано") ||
+    //     ( !(rightProduct.label.includes(mainFilter.brandNavBar)) && mainFilter.brandNavBar !== "") 
 
-    ){
-        return(
-            <div/>
+    // ){
+    //     return(
+    //         <div/>
+    //     )
+    // }
+
+    if (!(checkFilter(rightProduct, mainFilter))) {
+        return (
+            <div />
         )
     }
 
-    if(rightProduct && src){
-        return(
+    if (rightProduct && src) {
+        return (
             <Link to={`/shop/${article}`}>
                 <div className={cl.card}>
-                    <img src={src} className={cl.photo}/>
+                    <img alt="Фото товара" src={src} className={cl.photo} />
 
                     <div className={cl.introduction}>
                         <h1 className={cl.brand}>{rightProduct.brand}</h1>

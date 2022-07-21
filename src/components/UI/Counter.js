@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../..";
 import cl from "./styles/Counter.module.css"
-import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 export default function Counter({user, product, deleteProductOnCart}) {
-    const {auth, firestore} = useContext(Context);
-    const [productOnCart, loading] = useCollectionData(
+    const {firestore} = useContext(Context);
+    const [productOnCart] = useCollectionData(
         firestore.collection(`cart_${user.uid}`)
     )
     const [count, setCount] = useState()
@@ -14,7 +14,7 @@ export default function Counter({user, product, deleteProductOnCart}) {
     useEffect(()=>{
         if(productOnCart){
             productOnCart.map((productOnCart)=>{
-                if(productOnCart.article == product.article && productOnCart.size == product.size){
+                if(productOnCart.article === product.article && productOnCart.size === product.size){
                     setCount(productOnCart.number)
                 }
             })

@@ -1,16 +1,13 @@
 import React, { useContext } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Context } from "../..";
-import AdminLogo from "../UI/icons/admin/AdminLogo";
-import CartLogo from "../UI/icons/cart/CartLogo";
-import UserLogo from "../UI/icons/user/UserLogo";
 import Login from "./Login";
 import cl from "../styles/Profile.module.css"
 import { Link } from "react-router-dom";
 
 export default function Profile() {
-    const { auth, firestore } = useContext(Context);
-    const [user, loading, error] = useAuthState(auth);
+    const { auth } = useContext(Context);
+    const [user] = useAuthState(auth);
 
     return (
         <div className={cl.profile}>

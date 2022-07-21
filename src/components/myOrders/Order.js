@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../..";
 import cl from "../styles/Order.module.css"
@@ -22,15 +22,15 @@ export default function Order({ order, buttonStatus}) {
     }
 
     function translateStatus(word) {
-        if (word == "wait") {
+        if (word === "wait") {
             return "Ожидает обработку"
-        } else if (word == "sent") {
+        } else if (word === "sent") {
             return "Заказ отправлен"
-        } else if (word == "delivered") {
+        } else if (word === "delivered") {
             return "Заказ доставлен"
-        } else if (word == "completed") {
+        } else if (word === "completed") {
             return "Заказ завершен"
-        } else if (word == "cancelled") {
+        } else if (word === "cancelled") {
             return "Заказ отменен"
         }
     }
@@ -38,7 +38,7 @@ export default function Order({ order, buttonStatus}) {
     function searchByArticle(article) {
         let prod;
         products.map(product => {
-            if (product.article == article) {
+            if (product.article === article) {
                 prod = product;
             }
         })
@@ -52,7 +52,7 @@ export default function Order({ order, buttonStatus}) {
         )
     }
 
-    if(dataOrder[0].status != buttonStatus && buttonStatus != "" ){
+    if(dataOrder[0].status !== buttonStatus && buttonStatus !== "" ){
         return(
             <div/>
         )
@@ -66,7 +66,7 @@ export default function Order({ order, buttonStatus}) {
             <div className={cl.status}>{translateStatus(dataOrder[0].status)}</div>
 
             <div className={cl.data} onClick={e => openMenu(e)}>
-                <img className={cl.photoArrowClose} src={arrow} />
+                <img alt="\" className={cl.photoArrowClose} src={arrow} />
                 <p className={cl.buttonData}>Данные о заказе</p>
             </div>
 

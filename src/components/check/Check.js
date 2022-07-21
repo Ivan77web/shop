@@ -1,13 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { Context } from "../..";
 import CheckBlock from "./CheckBlock";
 import cl from "../styles/Check.module.css"
 import DataBlock from "./DataBlock";
-
-import { collection, addDoc } from "firebase/firestore"; 
 import Loader from "../UI/loader/Loader";
 
 export default function Check() {
@@ -33,7 +31,7 @@ export default function Check() {
     )    
 
     const addOrder = async () => {
-        if(valueRadio == "online"){
+        if(valueRadio === "online"){
             if(email && lastname && name && number && adress && valueRadio && cardNumber && cardDate && cardName && cardCVV){
                 const time = `order_${(new Date().getFullYear() + "_" + (new Date().getMonth()+1) + "_" + new Date().getDate() + "-" + new Date().getHours() + ":" +  new Date().getMinutes()  + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds())}`
                 await setDoc(doc(firestore.collection("orders").doc(`orders_${user.uid}`), time, "order"), {
@@ -74,7 +72,7 @@ export default function Check() {
                 alert("Требуется ввести все данные")
             }
 
-        } else if(valueRadio == "offline"){
+        } else if(valueRadio === "offline"){
             if(email && lastname && name && number && adress && valueRadio){
                 const time = `order_${(new Date().getFullYear() + "_" + (new Date().getMonth()+1) + "_" + new Date().getDate() + "-" + new Date().getHours() + ":" +  new Date().getMinutes()  + ":" + new Date().getSeconds() + ":" + new Date().getMilliseconds())}`
                 await setDoc(doc(firestore.collection("orders").doc(`orders_${user.uid}`), time, "order"), {
@@ -110,7 +108,7 @@ export default function Check() {
     
     function searchDataProductInAllProduct(article) {
         for(let i = 0; i < products.length; i++){
-            if(products[i].article == article){
+            if(products[i].article === article){
                 return products[i]
             }
         }

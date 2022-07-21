@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { Context } from "../../..";
 import Loader from "../../UI/loader/Loader";
 import cl from '../../styles/OneOrder.module.css'
-import cross from "../../../icons/cross.png"
-import tick from "../../../icons/tick.png"
+import WhiteCross from "../../UI/icons/cross/WhiteCross";
+import Tick from "../../UI/icons/tick/Tick";
 
 export default function OneOrder({id, filter}) {
     const {firestore} = useContext(Context);
@@ -15,25 +15,25 @@ export default function OneOrder({id, filter}) {
     const [textStatus, setTextStatus] = useState()
 
     function translateStatus(word){
-        if(word == "wait"){
+        if(word === "wait"){
             return "Ожидает обработку"
-        } else if(word == "sent"){
+        } else if(word === "sent"){
             return "Заказ отправлен"
-        } else if(word == "delivered"){
+        } else if(word === "delivered"){
             return "Заказ доставлен"
-        } else if(word == "completed"){
+        } else if(word === "completed"){
             return "Заказ завершен"
-        } else if(word == "cancelled"){
+        } else if(word === "cancelled"){
             return "Заказ отменен"
-        }else if(word == "Ожидает обработку"){
+        }else if(word === "Ожидает обработку"){
             return "wait"
-        } else if(word == "Заказ отправлен"){
+        } else if(word === "Заказ отправлен"){
             return "sent"
-        } else if(word == "Заказ доставлен"){
+        } else if(word === "Заказ доставлен"){
             return "delivered"
-        } else if(word == "Заказ завершен"){
+        } else if(word === "Заказ завершен"){
             return "completed"
-        } else if(word == "Заказ отменен"){
+        } else if(word === "Заказ отменен"){
             return "cancelled"
         }
     }
@@ -41,9 +41,6 @@ export default function OneOrder({id, filter}) {
     const openMenu = (e) => {
         const menu = e.target.closest(`.${cl.status}`).querySelector(`.${cl.allStatuses}`);
         menu.classList.toggle(cl.active);
-
-        // const menu = e.target.closest(`.${cl.status}`).querySelector(`.${cl.allStatuses}`);
-        // console.log(menu);
     }
 
     const changeStatus = e => {
@@ -78,9 +75,9 @@ export default function OneOrder({id, filter}) {
     }
 
     if( 
-        (textStatus == filter.statusOrder || filter.statusOrder == "") &&
-        (`Заказ № orders/${id.userId}/${id.time}`.includes(filter.number) || filter.number== "" ) &&
-        (`${dataOrder[0].data.name} ${dataOrder[0].data.lastname}`.includes(filter.name) || filter.name == "")
+        (textStatus === filter.statusOrder || filter.statusOrder === "") &&
+        (`Заказ № orders/${id.userId}/${id.time}`.includes(filter.number) || filter.number === "" ) &&
+        (`${dataOrder[0].data.name} ${dataOrder[0].data.lastname}`.includes(filter.name) || filter.name === "")
     ){
         return(
             <div className={cl.cardOrder}>
@@ -199,11 +196,11 @@ export default function OneOrder({id, filter}) {
                         <div className={cl.buttonsEdit}>
     
                             <div onClick={e => cancel(e)} className={cl.buttonCancel}>
-                                <img className={cl.imgCross} src={cross}/>
+                                <WhiteCross size="40px"/>
                             </div>
     
                             <div onClick={save} className={cl.buttonSave}>
-                                <img className={cl.imgTick} src={tick}/>
+                                <Tick size="40px"/>
                             </div>
                         </div>
                     </div>

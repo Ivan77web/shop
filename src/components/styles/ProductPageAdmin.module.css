@@ -26,6 +26,7 @@
 
 .settings{
     position: absolute;
+    cursor: pointer;
     top: 20px;
     right: 10px;
     height:fit-content;
@@ -67,6 +68,115 @@
 
 .buttons .buttonCancel{
     margin-right: 20px;
+}
+
+.gender{
+    height: 50px;
+}
+
+.genders{
+    position: relative;
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.genderActiveMen{
+    background: teal;
+    color: white;
+    cursor: pointer;
+    margin-right: 2%;
+    width: 48%;
+    height: 40px;
+    border: 1px solid teal;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.genderActiveWomen{
+    background: teal;
+    color: white;
+    cursor: pointer;
+    margin-left: 2%;
+    width: 48%;
+    height: 40px;
+    border: 1px solid teal;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;   
+}
+
+.genderMen{
+    cursor: pointer;
+    margin-right: 5px;
+    color: rgb(82, 82, 82);
+    margin-right: 2%;
+    width: 48%;
+    height: 40px;
+    background: white;
+    border: 1px solid teal;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;
+    
+}
+
+.genderWomen{
+    cursor: pointer;
+    color: rgb(82, 82, 82);
+    margin-left: 2%;
+    width: 48%;
+    height: 40px;
+    background: white;
+    border: 1px solid teal;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.labels{
+    position: relative;
+    display: flex;
+    margin-top: 80px;
+    width: calc(90% + 20px);
+}
+
+.label{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid teal;
+    border-radius: 10px;
+    background: white;
+    color: rgb(82, 82, 82);
+    text-align: center;
+}
+
+.labelNo{
+    margin-right: 10px;
+}
+
+.labelNike{
+    line-height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.labelJordan{
+    line-height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.labelYeezy{
+    line-height: 40px;
+    margin-left: 10px;
+}
+
+.activeLabel{
+    background: teal;
+    color: white;
 }
 
 .active{

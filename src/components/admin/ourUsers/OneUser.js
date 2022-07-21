@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import cl from "../../styles/OneUser.module.css"
 import { Context } from "../../..";
 
 export default function OneUser({ user, isAdmin }) {
-    const { auth, firestore } = useContext(Context);
+    const { firestore } = useContext(Context);
     const openMenu = e => {
         const menu = e.target.closest(`.${cl.correctStatus}`).querySelector(`.${cl.options}`)
         menu.classList.toggle(cl.active)
@@ -59,9 +59,9 @@ export default function OneUser({ user, isAdmin }) {
                         <div onClick={e => openMenu(e)} className={cl.textStatus}>Изменить статус</div>
 
                         <div className={cl.options + " " + cl.active}>
-                            <div className={cl.option} onClick={e => correctStatus(e, "user")} style={user.status == "user" ? { background: "rgb(140, 172, 140)" } : { background: "white" }}>Пользователь</div>
-                            <div className={cl.option} onClick={e => correctStatus(e, "admin")} style={user.status == "admin" ? { background: "rgb(140, 172, 140)" } : { background: "white" }}>Администратор</div>
-                            <div className={cl.option} onClick={e => correctStatus(e, "mainAdmin")} style={user.status == "mainAdmin" ? { background: "rgb(140, 172, 140)" } : { background: "white" }}>Главный администратор</div>
+                            <div className={cl.option} onClick={e => correctStatus(e, "user")} style={user.status === "user" ? { background: "rgb(140, 172, 140)" } : { background: "white" }}>Пользователь</div>
+                            <div className={cl.option} onClick={e => correctStatus(e, "admin")} style={user.status === "admin" ? { background: "rgb(140, 172, 140)" } : { background: "white" }}>Администратор</div>
+                            <div className={cl.option} onClick={e => correctStatus(e, "mainAdmin")} style={user.status === "mainAdmin" ? { background: "rgb(140, 172, 140)" } : { background: "white" }}>Главный администратор</div>
                         </div>
                     </div>
                     :

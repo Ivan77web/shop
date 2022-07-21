@@ -7,7 +7,6 @@ import Loader from "../../UI/loader/Loader";
 import MyInput from "../../UI/MyInput";
 import OneUser from "../ourUsers/OneUser";
 
-
 export default function OurAdmins() {
     const {auth, firestore} = useContext(Context);
     const [user] = useAuthState(auth);
@@ -27,15 +26,15 @@ export default function OurAdmins() {
     }, [inputValue, allUsers])
 
     useEffect(() => {
-        let admins = allUsersFilter.filter( user => (user.status == "admin" || user.status == "mainAdmin" ) )
+        let admins = allUsersFilter.filter( user => (user.status === "admin" || user.status === "mainAdmin" ) )
         setAdmins(admins);
     }, [allUsersFilter])
 
     useEffect( () => {
         if(user && !loading){
             allUsers.map( oneUser => {
-                if(oneUser.id == user.uid){
-                    if(oneUser.status == "mainAdmin"){
+                if(oneUser.id === user.uid){
+                    if(oneUser.status === "mainAdmin"){
                         setIsAdmin(true)
                     }
                 }

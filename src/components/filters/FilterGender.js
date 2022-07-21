@@ -31,8 +31,8 @@ export default function FilterGender({filterGender, setFilterGender}) {
         <div onClick={e => openGenderMenu(e)} className={cl.filterGender}>
             
             <div className={cl.introGender}>
-                <p>{filterGender == "" ? "Пол" : filterGender}</p>
-                <img className={cl.arrowImg} src={arrow} />
+                <p>{filterGender === "" ? "Пол" : filterGender}</p>
+                <img alt="\" className={cl.arrowImg} src={arrow} />
             </div>
 
             <div className={cl.genders + " " + cl.active}>

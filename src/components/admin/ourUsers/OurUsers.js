@@ -27,8 +27,8 @@ export default function OurUsers(){
     useEffect( () => {
         if(user && !loading){
             allUsers.map( oneUser => {
-                if(oneUser.id == user.uid){
-                    if(oneUser.status == "mainAdmin"){
+                if(oneUser.id === user.uid){
+                    if(oneUser.status === "mainAdmin"){
                         setIsAdmin(true)
                     }
                 }

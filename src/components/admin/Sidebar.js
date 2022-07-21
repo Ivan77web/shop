@@ -22,7 +22,7 @@ export default function Sidebar(){
 
             <div className={cl.linkProducts}>
                 <div onClick={openMenu} className={cl.headerProducts}>
-                    <img className={cl.imgArrow + " " + cl.imgClose} src={arrow}/>
+                    <img alt="|" className={cl.imgArrow + " " + cl.imgClose} src={arrow}/>
                     Товары
                 </div>
 

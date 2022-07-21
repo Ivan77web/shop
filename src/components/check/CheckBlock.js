@@ -2,7 +2,6 @@ import React from "react";
 import cl from "../styles/CheckBlock.module.css"
 
 export default function CheckBlock({ productsMyCart, allPrice, searchDataProductInAllProduct}) {
-
     return(
         <div className={cl.checkBlockMain}>
             <div className={cl.intro}>
@@ -16,6 +15,7 @@ export default function CheckBlock({ productsMyCart, allPrice, searchDataProduct
                         <tr>
                             <th className={cl.tableBrand}>Бренд</th>
                             <th className={cl.tableModel}>Модель</th>
+                            <th className={cl.tableModel}>Размер</th>
                             <th className={cl.tableNumber}>Кол-во</th>
                             <th className={cl.tablePrice}>Цена</th>
                         </tr>
@@ -24,9 +24,10 @@ export default function CheckBlock({ productsMyCart, allPrice, searchDataProduct
                     <tbody>
                         {
                             productsMyCart.map(product => 
-                                <tr className={cl.trOneTable} key={product.article}>
+                                <tr className={cl.trOneTable} key={product.article + product.size}>
                                     <td>{searchDataProductInAllProduct(product.article).brand}</td> 
                                     <td>{searchDataProductInAllProduct(product.article).model}</td>
+                                    <td>{product.size}</td>
                                     <td>{product.number}</td>
                                     <td>{searchDataProductInAllProduct(product.article).price * product.number} руб.</td>
                                 </tr>

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from "react";
 import cl from "../styles/FilterPrice.module.css"
 import MyInput from "../UI/MyInput";
 

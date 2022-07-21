@@ -1,6 +1,6 @@
 .filterGender{
     margin: 20px;
-    width: 220px;
+    width: 180px;
     background: rgb(242, 242, 245);
     border-bottom: 1px solid rgb(242, 242, 245);
     border-radius: 10px;
@@ -43,7 +43,7 @@
 }
 
 .genders{
-    width: 220px;
+    width: 180px;
     height: 130px;
     background: rgb(242, 242, 245);
     border-bottom-left-radius: 10px;
@@ -52,7 +52,7 @@
 
 .variant{
     width: 100%;
-    width: 180px;
+    width: 140px;
     margin: 0 auto;
     border-radius: 5px;
     padding: 5px;

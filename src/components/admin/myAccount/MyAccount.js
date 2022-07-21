@@ -17,7 +17,7 @@ export default function MyAccount() {
     useEffect(() => {
         if (user && allUsers) {
             allUsers.map(oneUser => {
-                if (oneUser.id == user.uid) {
+                if (oneUser.id === user.uid) {
                     setUserData(oneUser);
                     setLoading(false)
                 }

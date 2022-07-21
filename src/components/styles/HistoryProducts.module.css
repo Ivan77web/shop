@@ -1,0 +1,22 @@
+.history{
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.intro{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.products{
+    width: fit-content;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.introNot{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

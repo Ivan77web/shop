@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./profile/Login";
 import Shop from "./shop/Shop";
@@ -19,7 +19,7 @@ import Loader from "./UI/loader/Loader";
 import MyOrders from "./myOrders/MyOrders";
 
 export default function AppRouter({ userData, brandNavBar }) {
-    const { auth, firestore } = useContext(Context);
+    const { auth } = useContext(Context);
     const [user, loading] = useAuthState(auth);
 
     if (loading) {
@@ -28,7 +28,7 @@ export default function AppRouter({ userData, brandNavBar }) {
         )
     }
 
-    return userData.status == "admin" || userData.status == "mainAdmin"
+    return userData.status === "admin" || userData.status === "mainAdmin"
         ?
         (
             <Routes>

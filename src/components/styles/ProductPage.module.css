@@ -1,8 +1,13 @@
 .productPage{
     background: rgb(242, 242, 245);
-    display: flex;
-    height: 100vh;
+    /* display: flex; */
+    /* height: 100vh; */
+    min-height: calc(100vh - 59px);
     overflow-y: hidden;
+}
+
+.data{
+    display: flex;
 }
 
 .introduction{

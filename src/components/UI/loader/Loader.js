@@ -5,7 +5,7 @@ import cl from "./Loader.module.css"
 export default function Loader(){
     return(
         <div className={cl.loader}>
-            <img className={cl.photo} src={gif}/>
+            <img alt="Загрузка" className={cl.photo} src={gif}/>
         </div>
     )
 }

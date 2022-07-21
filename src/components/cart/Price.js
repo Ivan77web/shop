@@ -16,7 +16,7 @@ export default function Price({user, product, price}) {
     useEffect(()=>{
         if(productsOnCart){
             productsOnCart.map((productOnCart)=>{
-                if(productOnCart.article == product.article){
+                if(productOnCart.article === product.article){
                     setRightProduct(productOnCart)
                 }
             })

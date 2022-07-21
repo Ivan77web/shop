@@ -26,7 +26,7 @@ export default function ProductOnCart({product}){
     useEffect(()=>{
         if(products){
             products.map(productElem => {
-                if(product.article == productElem.article){
+                if(product.article === productElem.article){
                     setRightProduct(productElem);
                 }
             })
@@ -46,7 +46,7 @@ export default function ProductOnCart({product}){
     if(rightProduct && src){
         return(
             <div className={cl.card}>
-                <img className={cl.photo} src={src}/>
+                <img alt="Фото товара" className={cl.photo} src={src}/>
 
                 <div className={cl.introduction}>
                     <h1 className={cl.brand}>{rightProduct.brand}</h1>

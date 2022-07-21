@@ -1,0 +1,25 @@
+.tick{
+    position: relative;
+}
+
+.one{
+    position: absolute;
+    top: 60%;
+    left: 0;
+    width: 50%;
+    height: 5px;
+    background: white;
+    border-radius: 3px;
+    rotate: 45deg;
+}
+
+.two{
+    position: absolute;
+    top: 48%;
+    left: 22%;
+    width: 85%;
+    height: 5px;
+    background: white;
+    border-radius: 3px;
+    rotate: 135deg;
+}

@@ -7,7 +7,7 @@
 .addProduct{
     position: relative;
     width: 70%;
-    height: 600px;
+    height: 630px;
     margin: 50px 50px 0;
     background: rgb(243, 243, 243);
     border: 1px solid rgb(165, 165, 165);
@@ -26,7 +26,90 @@
 }
 
 .buttonAdd{
+    position: relative;
+    width: calc(90% + 20px);
+    margin-top: 40px;
+}
+
+.genders{
+    position: relative;
+    width: calc(90% + 20px);
+    display: flex;
+}
+
+.genderMen{
     position: absolute;
-    width: 20%;
-    bottom: 47px;
+    cursor: pointer;
+    color: rgb(82, 82, 82);
+    left: 0;
+    width: 48%;
+    height: 40px;
+    background: white;
+    border: 1px solid teal;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.genderWomen{
+    position: absolute;
+    cursor: pointer;
+    color: rgb(82, 82, 82);
+    right: 0;
+    width: 48%;
+    height: 40px;
+    background: white;
+    border: 1px solid teal;
+    border-radius: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.activeGender{
+    background: teal;
+    color: white;
+}
+
+.labels{
+    position: relative;
+    display: flex;
+    margin-top: 80px;
+    width: calc(90% + 20px);
+}
+
+.label{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid teal;
+    border-radius: 10px;
+    background: white;
+    color: rgb(82, 82, 82);
+    text-align: center;
+}
+
+.labelNo{
+    margin-right: 10px;
+}
+
+.labelNike{
+    line-height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.labelJordan{
+    line-height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.labelYeezy{
+    line-height: 40px;
+    margin-left: 10px;
+}
+
+.activeLabel{
+    background: teal;
+    color: white;
 }

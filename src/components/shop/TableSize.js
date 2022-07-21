@@ -18,7 +18,7 @@ export default function TableSize({errorSize, setErrorSize, inputSize, setInputS
     }
 
     useEffect(()=>{
-        if(inputSize != null && !errorSize){
+        if(inputSize !== null && !errorSize){
             setStyleForElem(`${cl.TableSize} ${cl.TableSizeActive}`)
         }else if(errorSize){
             setStyleForElem(`${cl.TableSize} ${cl.TableSizeError}`)
@@ -36,7 +36,7 @@ export default function TableSize({errorSize, setErrorSize, inputSize, setInputS
                 :
                     <div className={cl.text}>Выберите размер</div>
             }
-            <img src={arrow} className={cl.arrow}/>
+            <img alt="\" src={arrow} className={cl.arrow}/>
 
             {
                 menu

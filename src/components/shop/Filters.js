@@ -1,11 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import cl from "../styles/Filters.module.css"
-import Loader from "../UI/loader/Loader";
-import MyInput from "../UI/MyInput";
 import FilterGender from "../filters/FilterGender";
 import FilterPrice from "../filters/FilterPrice";
 import FilterBrand from "../filters/FilterBrand";
-import MyButton from "../UI/MyButton";
 import Cross from "../UI/icons/cross/Cross";
 import Search from "../UI/icons/search/Search";
 
@@ -30,16 +27,18 @@ export default function Filters({ filterGender, setFilterGender, startPrice, set
         return (
             <div className={cl.filters}>
 
-                <div className={cl.chahgeOfSize} onClick={resize}>
-                    <Cross size="20px" />
-                </div>
-
-                <div className={cl.filtersBlock}>
+                <div className={cl.chahgeOfSize}>
                     <FilterGender
                         filterGender={filterGender}
                         setFilterGender={setFilterGender}
                     />
 
+                    <div className={cl.cross} onClick={resize}>
+                        <Cross size="20px" />
+                    </div>
+                </div>
+
+                <div className={cl.filtersBlock}>
                     <FilterPrice
                         startPrice={startPrice}
                         setStartPrice={setStartPrice}

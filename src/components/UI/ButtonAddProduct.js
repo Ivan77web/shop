@@ -16,7 +16,7 @@ export default function ButtonAddProduct({user, inputSize, article, addProductIn
             for(let i = 0; i < productInCart.length; i++){
                 let elem = productInCart[i];
 
-                if(elem.article == article && elem.size == inputSize){
+                if(elem.article === article && elem.size === inputSize){
                     setIsTheCart(true)
                     return
                 }else{

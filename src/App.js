@@ -5,13 +5,13 @@ import Navbar from "./components/Navbar"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext, useEffect, useState } from 'react';
 import { Context } from ".";
-import Loader from './components/UI/loader/Loader';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import { ADMIN_DATA } from './utils/adminData';
 
 function App() {
   const { auth, firestore } = useContext(Context);
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [userData, setUserData] = useState({})
   const [brandNavBar, setBrandNavbar] = useState("");
   const [allUsers] = useCollectionData(
@@ -19,10 +19,10 @@ function App() {
   )
 
   useEffect(() => {
-    if (allUsers && user != null) {
+    if (allUsers && user !== null) {
       allUsers.map(elem => {
-        if (elem.name == user.displayName && elem.email == user.email) {
-          if (elem.name == "Макс Белый" && elem.email == "ivanshestopalov39@gmail.com") {
+        if (elem.name === user.displayName && elem.email === user.email) {
+          if (elem.name === ADMIN_DATA.name && elem.email === ADMIN_DATA.email) {
             setDoc(doc(firestore, "allUsers", `user_${elem.id}`), {
               name: elem.name,
               email: elem.email,
@@ -39,7 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar brandNavBar={brandNavBar} setBrandNavbar={setBrandNavbar} userData={userData} />
-      <AppRouter brandNavBar={brandNavBar} userData={userData} />
+      <AppRouter className="appRouter" brandNavBar={brandNavBar} userData={userData} />
     </BrowserRouter>
   );
 }

@@ -5,7 +5,6 @@
     margin-bottom: 20px;
     overflow-y: hidden;
     background: rgb(242, 242, 245);
-    
 }
 
 .shop::-webkit-scrollbar {
@@ -19,6 +18,8 @@
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    margin-left: 260px;
+    margin-top: 60px;
 }
 
 .addCart{

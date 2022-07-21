@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useContext } from 'react';
 import { Context } from "..";
-import cross from "../icons/crossBlack.png"
 import UserLogo from "../components/UI/icons/user/UserLogo"
 import CartLogo from "./UI/icons/cart/CartLogo";
 import AdminLogo from "./UI/icons/admin/AdminLogo";
+import Cross from "./UI/icons/cross/Cross";
+import Arrow from "./UI/icons/arrow/Arrow";
 
 export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
     const { auth } = useContext(Context);
@@ -21,15 +22,15 @@ export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
     }
 
     useEffect(() => {
-        if (brandNavBar == "Nike") {
+        if (brandNavBar === "Nike") {
             document.querySelector(`.${cl.criterionOne}`).classList.add(cl.criterionActive)
             document.querySelector(`.${cl.criterionTwo}`).classList.remove(cl.criterionActive)
             document.querySelector(`.${cl.criterionThree}`).classList.remove(cl.criterionActive)
-        } else if (brandNavBar == "Jordan") {
+        } else if (brandNavBar === "Jordan") {
             document.querySelector(`.${cl.criterionOne}`).classList.remove(cl.criterionActive)
             document.querySelector(`.${cl.criterionTwo}`).classList.add(cl.criterionActive)
             document.querySelector(`.${cl.criterionThree}`).classList.remove(cl.criterionActive)
-        } if (brandNavBar == "Yeezy") {
+        } if (brandNavBar === "Yeezy") {
             document.querySelector(`.${cl.criterionOne}`).classList.remove(cl.criterionActive)
             document.querySelector(`.${cl.criterionTwo}`).classList.remove(cl.criterionActive)
             document.querySelector(`.${cl.criterionThree}`).classList.add(cl.criterionActive)
@@ -42,24 +43,46 @@ export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
             <div className={cl.criteria}>
 
                 <div className={cl.oneCriterion + " " + cl.criterionOne}>
-                    <img onClick={e => deleteCriterion(e)} className={cl.cross} src={cross} />
-                    <div onClick={e => choiceCriterion(e)} className={cl.criterion}>
-                        Nike
-                    </div>
+                    <Link to="/shop">
+                        <div className={cl.cross} onClick={e => deleteCriterion(e)}>
+                            <Cross size="20px" />
+                        </div>
+                    </Link>
+
+                    <Link to="/shop">
+                        <div onClick={e => choiceCriterion(e)} className={cl.criterion}>
+                            Nike
+                        </div>
+                    </Link>
+
                 </div>
 
                 <div className={cl.oneCriterion + " " + cl.criterionTwo}>
-                    <img onClick={e => deleteCriterion(e)} className={cl.cross} src={cross} />
-                    <p onClick={e => choiceCriterion(e)} className={cl.criterion}>
-                        Jordan
-                    </p>
+                    <Link to="/shop">
+                        <div className={cl.cross} onClick={e => deleteCriterion(e)}>
+                            <Cross size="20px" />
+                        </div>
+                    </Link>
+
+                    <Link to="/shop">
+                        <p onClick={e => choiceCriterion(e)} className={cl.criterion}>
+                            Jordan
+                        </p>
+                    </Link>
                 </div>
 
                 <div className={cl.oneCriterion + " " + cl.criterionThree}>
-                    <img onClick={e => deleteCriterion(e)} className={cl.cross} src={cross} />
-                    <p onClick={e => choiceCriterion(e)} className={cl.criterion}>
-                        Yeezy
-                    </p>
+                    <Link to="/shop">
+                        <div className={cl.cross} onClick={e => deleteCriterion(e)}>
+                            <Cross size="20px" />
+                        </div>
+                    </Link>
+
+                    <Link to="/shop">
+                        <p onClick={e => choiceCriterion(e)} className={cl.criterion}>
+                            Yeezy
+                        </p>
+                    </Link>
                 </div>
 
             </div>
@@ -69,7 +92,7 @@ export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
             </Link>
 
             {
-                userData.status == "admin" || userData.status == "mainAdmin"
+                userData.status === "admin" || userData.status === "mainAdmin"
                     ?
                     <div className={cl.links}>
                         <Link to="/profile" className={cl.link}>

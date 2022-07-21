@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../../..";
 import cl from "../../styles/Orders.module.css"
-import { doc, getDoc } from "firebase/firestore";
 import Loader from "../../UI/loader/Loader";
 import OneOrder from "./OneOrder";
 import MyInput from "../../UI/MyInput";
@@ -28,7 +27,7 @@ export default function Orders(){
         allButtons.childNodes.forEach( elem => elem.classList.remove(cl.activeFilter) )
         statusCard.classList.add(cl.activeFilter)
 
-        if(statusCard.innerHTML == "Не выбрано"){
+        if(statusCard.innerHTML === "Не выбрано"){
             setStatusOrder("")
         } else{
             setStatusOrder(statusCard.innerHTML)

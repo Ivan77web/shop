@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Context } from "../..";
 import firebase from 'firebase/compat/app';
-import { doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import cl from "../styles/Login.module.css"
@@ -32,12 +32,12 @@ export default function Login() {
     const checkUser = (user) => {
         let flag = 0;
         for (let i = 0; i < allUsers.length; i++) {
-            if (allUsers[i].id == user.uid) {
+            if (allUsers[i].id === user.uid) {
                 flag = 1;
             }
         }
 
-        if (flag == 0) {
+        if (flag === 0) {
             addUserInDB(user);
         }
     }

@@ -5,6 +5,9 @@
     background: rgb(255, 255, 255);
     border-bottom: solid rgb(165, 165, 165) 1px;
     font-size: 12px;
+
+    /* position: fixed; */
+    /* width: 100%; */
 }
 
 .criteria{
@@ -27,18 +30,15 @@
 .cross{
     cursor: pointer;
     position: absolute;
-    height: 15px;
-    width: auto;
     top: 20px;
     left: 40px;
     z-index: -1;
-    rotate: 45deg;
 }
 
 .criterion{
     width: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
     text-align: center;
     cursor: pointer;
 }
