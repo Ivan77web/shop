@@ -31,31 +31,31 @@ export default function ProductPage() {
         let objCookie = {};
         let cookies = document.cookie.split("; ")
 
-        for(let i = 0; i < cookies.length; i++){
+        for (let i = 0; i < cookies.length; i++) {
             let cookie = cookies[i].split("=");
             objCookie[cookie[0]] = cookie[1];
         }
 
-        if( !(objCookie.prod) ){
+        if (!(objCookie.prod)) {
             document.cookie = `prod=${article};max-age=172800`;
         } else {
 
-            if( !(objCookie.prod.includes(article)) ){
+            if (!(objCookie.prod.includes(article))) {
                 let arrProd = objCookie.prod.split(" ")
                 let length = objCookie.prod.split(" ").length
-                
-                if(length < 4){
+
+                if (length < 4) {
                     document.cookie = `prod=${objCookie.prod + " " + article};max-age=172800`;
-                } else if (length >= 4){
+                } else if (length >= 4) {
                     document.cookie = `prod=${arrProd[1] + " " + arrProd[2] + " " + arrProd[3] + " " + article};max-age=172800`;
                 }
             } else {
                 let arrProd = objCookie.prod.split(" ")
                 let str = "";
 
-                arrProd.splice(arrProd.indexOf(article) ,1)
-                
-                for(let i = 0; i < arrProd.length; i++){
+                arrProd.splice(arrProd.indexOf(article), 1)
+
+                for (let i = 0; i < arrProd.length; i++) {
                     str = str + " " + arrProd[i]
                 }
 
@@ -110,7 +110,7 @@ export default function ProductPage() {
 
     if (productInfo && src) {
         return (
-            <div className={cl.productPage}>
+            <div className={cl.productPage + " " + "productPage"}>
                 <div className={cl.data}>
                     <div className={cl.photoBlock}>
                         <img alt="Фото товара" src={src} className={cl.photo} />
@@ -129,7 +129,9 @@ export default function ProductPage() {
                             {`${productInfo.price} руб.`}
                         </div>
 
-                        <TableSize errorSize={errorSize} setErrorSize={setErrorSize} inputSize={inputSize} setInputSize={setInputSize} arrSizes={productInfo.size} />
+                        <div className={cl.tableSize}>
+                            <TableSize errorSize={errorSize} setErrorSize={setErrorSize} inputSize={inputSize} setInputSize={setInputSize} arrSizes={productInfo.size} />
+                        </div>
 
                         {
                             user
@@ -167,7 +169,9 @@ export default function ProductPage() {
                 </div>
 
                 {/* <button onClick={deleteCookies}>DELETE</button> */}
-                <HistoryProducts />
+                <div className={cl.history}>
+                    <HistoryProducts />
+                </div>
             </div>
         )
     }

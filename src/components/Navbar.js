@@ -8,7 +8,7 @@ import UserLogo from "../components/UI/icons/user/UserLogo"
 import CartLogo from "./UI/icons/cart/CartLogo";
 import AdminLogo from "./UI/icons/admin/AdminLogo";
 import Cross from "./UI/icons/cross/Cross";
-import Arrow from "./UI/icons/arrow/Arrow";
+import logoImg from "../icons/sneakersIcon.png"
 
 export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
     const { auth } = useContext(Context);
@@ -89,10 +89,11 @@ export default function Navbar({ userData, setBrandNavbar, brandNavBar }) {
 
             <Link to="/" className={cl.link}>
                 <div className={cl.logo}>Кроксы с дырочками</div>
+                <img className={cl.logoImg} src={logoImg} />
             </Link>
 
             {
-                userData.status === "admin" || userData.status === "mainAdmin"
+                (userData.status === "admin" || userData.status === "mainAdmin") && user !== null
                     ?
                     <div className={cl.links}>
                         <Link to="/profile" className={cl.link}>

@@ -36,8 +36,8 @@ export default function MyAccount() {
             <h2 className={cl.intro}>Моя страница</h2>
 
             <table className={cl.table}>
-                <col style={{width: "200px"}}/>
-                <col style={{width: "200px"}}/>
+                <col className={cl.colOne}/>
+                <col className={cl.colTwo}/>
                 
                 <tbody>
                     <tr className={cl.trOneTable}>

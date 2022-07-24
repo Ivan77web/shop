@@ -118,6 +118,11 @@ export default function ProductPageAdmin({ product }) {
                 label: label
             });
 
+            await updateDoc(doc(firestore, "productsBrand", `product_${product.article}`), {
+                article: product.article,
+                brand: brand
+            });
+
             cancel(e)
         } else {
             alert("Требуется ввести все измененные данные")

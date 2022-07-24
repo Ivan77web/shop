@@ -6,8 +6,13 @@ import { Outlet } from "react-router-dom";
 export default function Admin() {
     return(
         <div className={cl.admin}>
-            <Outlet/>
-            <Sidebar/>
+            <div className={cl.sidebar}>
+                <Sidebar/>
+            </div>
+            
+            <div className={cl.outlet}>
+                <Outlet/>
+            </div>
         </div>
     )
 }

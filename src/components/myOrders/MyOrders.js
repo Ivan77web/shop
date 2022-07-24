@@ -5,6 +5,8 @@ import { Context } from "../..";
 import cl from "../styles/MyOrders.module.css"
 import Loader from "../UI/loader/Loader";
 import Order from "./Order";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import "../stylesForanimation/styleForAnimation.css"
 
 
 export default function MyOrders() {
@@ -35,7 +37,7 @@ export default function MyOrders() {
     }
 
     return (
-        <div className={cl.myOrders}>
+        <div className={cl.myOrders + " " + "orders"}>
             <h3 className={cl.intro}>
                 Мои заказы
             </h3>
@@ -66,11 +68,11 @@ export default function MyOrders() {
                 </div>
             </div>
 
-            {
-                ordersIdFilter.map(order =>
-                    <Order buttonStatus={buttonStatus} order={order} key={`${order.userId}-${order.time}`} />
-                )
-            }
+                {
+                    ordersIdFilter.map(order =>
+                            <Order buttonStatus={buttonStatus} order={order} key={`${order.userId}-${order.time}`} />
+                    )
+                }
 
         </div>
     )

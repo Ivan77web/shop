@@ -1,0 +1,90 @@
+/* 
+.entering{}
+.entered{}
+.exiting{}
+.exited{}
+*/
+
+/* ------------------------------------------------------------------------------ */
+
+.filters.entering{
+    animation: openFilters 0.5s forwards;
+}
+
+.filters.entering .animationChangeOfSize{
+    display: none;
+}
+
+.filters.entered{
+    margin-left: 5%;
+    background: white;
+}
+
+.filters.entered .animationChangeOfSize{
+    display: flex;
+}
+
+.filters.exiting{
+    width: 100px;
+    animation: closeFilters 0.5s forwards;
+}
+
+.filters.exeting .animationChangeOfSize{
+    display: none;
+}
+
+.filters.exited{
+    width: 100px;
+    margin-left: calc(50% - 50px);
+    background: none;
+    box-shadow: none;
+}
+
+.filters.exited .animationChangeOfSize{
+    display: none;
+}
+
+@keyframes openFilters {
+    0%{
+        width: 100px;
+        margin-left: calc(50% - 50px);
+    }
+
+    100%{
+        width: 90%;
+        margin-left: 5%;
+        background: white;
+    }
+}
+
+@keyframes closeFilters {
+    0%{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    100%{
+        width: 100px;
+        margin-left: calc(50% - 50px);
+        background: none;
+        box-shadow: none;
+    }
+}
+
+/* ------------------------------------------------------------------------------ */
+
+.shop .products.entered{
+    animation: openProduct 3s forwards;
+}
+
+@keyframes openProduct {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------------------------ */

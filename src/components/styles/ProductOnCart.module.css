@@ -1,6 +1,7 @@
 .card{
     position: relative;
     width: 90%;
+    min-width: 250px;
     height: 150px;
     border: 1px solid rgb(82, 82, 82);
     border-radius: 10px;
@@ -9,8 +10,11 @@
     margin-bottom: 10px;
 }
 
+.data{
+    display: flex;
+}
+
 .photo{
-    position: absolute;
     height: 90%;
     width: auto;
     margin-left: 30px;
@@ -19,7 +23,6 @@
 }
 
 .introduction{
-    position: absolute;
     left: 300px;
     height: 91px;
     margin-top: 17px;
@@ -51,8 +54,108 @@
     font-size: 15px;
 }
 
+.counter{
+    width: 120px;
+    height: fit-content;
+    margin-top: 45px;
+    margin-left: 50px;
+}
+
+.allPrice{
+    width: fit-content;
+    height: fit-content;
+    margin-top: 65px;
+    margin-left: 50px;
+    margin-right: 160px;
+}
+
 .delete{
     position: absolute;
-    right: 50px;
+    width: fit-content;
+    height: fit-content;
     top: 60px;
+    right: 50px;
+}
+
+@media screen and (max-width: 1350px) {
+    .data{
+        flex-wrap: wrap;
+    }
+
+    .photo{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .card{
+        height: 300px;
+    }
+
+    .data{
+        display: block;
+    }
+
+    .counter{
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    .allPrice{
+        margin: 0;
+        margin-top: 130px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .card{
+        width: 40%;
+        display: block;
+        height: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .data{
+        display: block;
+        position: relative;
+    }
+
+    .photo{
+        width: 90%;
+        height: auto;
+        margin-left: 30px;
+        margin-top: 7px;
+        margin-right: 100px;
+    }
+
+    .introduction{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .counter{
+        height: 60px;
+        margin-left: calc(50% - 60px);
+    }
+
+    .allPrice{
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    .delete{
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        top: 110%;
+        left: calc(50% - 50px);
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .card{
+        width: 90%;
+    }
 }

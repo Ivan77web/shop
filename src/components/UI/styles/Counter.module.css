@@ -11,8 +11,6 @@ button{
     position: absolute;
     width: 120px;
     height: 60px;
-    right: 350px;
-    top: 45px;
     display: flex;
     font-size: 30px;
 }

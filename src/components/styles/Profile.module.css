@@ -28,3 +28,16 @@
 .logout{
     color: rgb(145, 22, 22);
 }
+
+@media screen and (max-width: 450px) {
+    .blockOne{
+        position: absolute;
+        left: 0;
+    }
+    
+    .blockTwo{
+        position: absolute;
+        left: 0;
+        top: 50px;
+    }   
+}

@@ -26,8 +26,8 @@ export default function OneUser({ user, isAdmin }) {
         <div className={cl.oneUser}>
             <table className={cl.table}>
 
-                <col style={{ width: "300px" }} />
-                <col style={{ width: "300px" }} />
+                <col className={cl.colOne}/>
+                <col className={cl.colOne}/>
 
                 <tbody>
                     <tr className={cl.trOneTable}>
@@ -35,7 +35,7 @@ export default function OneUser({ user, isAdmin }) {
                         <td>{user.name}</td>
                     </tr>
 
-                    <tr className={cl.trOneTable}>
+                    <tr className={cl.trOneTable + " " + cl.idUsers}>
                         <td><b>ID пользователя</b></td>
                         <td>{user.id}</td>
                     </tr>

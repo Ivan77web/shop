@@ -1,6 +1,7 @@
 .arrow{
     position: relative;
-    rotate: 45deg;
+    /* rotate: 45deg; */
+    transform: rotate(45deg);
     top: 100px;
 }
 

@@ -16,3 +16,36 @@
     border: 1px solid rgb(117, 117, 117);
     border-radius: 10px;
 }
+
+.colOne, .colTwo{
+    width: 200px;
+}
+
+@media screen and (max-width: 860px) {
+    .myAccount{
+        width: 100%;
+    }
+
+    .intro{
+        margin: 0;
+        text-align: center;
+    }
+
+    .table{
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .colOne, .colTwo{
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .table{
+        font-size: 10px;
+    }
+}
+

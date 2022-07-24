@@ -3,3 +3,27 @@
     position: relative;
     background: rgb(242, 242, 245);
 }
+
+.outlet{
+    width: 80%;
+}
+
+.sidebar{
+    
+}
+
+@media screen and (max-width: 860px) {
+    .admin{
+        display: block;
+    }
+
+    .outlet{
+        margin: 0;
+        width: 100%;
+    }
+
+    .sidebar{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}

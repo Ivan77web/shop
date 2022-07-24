@@ -1,6 +1,6 @@
 .myOrders{
     background: rgb(242, 242, 245);
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 59px);
     height: fit-content;
 }
 

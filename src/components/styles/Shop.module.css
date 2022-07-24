@@ -1,7 +1,6 @@
 .shop{
     width: 100%;
     min-height: calc(100vh - 58px);
-    display: flex;
     margin-bottom: 20px;
     overflow-y: hidden;
     background: rgb(242, 242, 245);
@@ -11,6 +10,11 @@
     width: 0;
 }
 
+.bgBlock{
+    width: 100%;
+    height: auto;
+}
+
 .products{
     margin: 0 auto;
     display: flex;
@@ -18,7 +22,6 @@
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
-    margin-left: 260px;
     margin-top: 60px;
 }
 

@@ -39,6 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar brandNavBar={brandNavBar} setBrandNavbar={setBrandNavbar} userData={userData} />
+
       <AppRouter className="appRouter" brandNavBar={brandNavBar} userData={userData} />
     </BrowserRouter>
   );

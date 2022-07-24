@@ -1,6 +1,8 @@
 .filterGender{
     margin: 20px;
     width: 180px;
+    min-height: 50px;
+    height: fit-content;
     background: rgb(242, 242, 245);
     border-bottom: 1px solid rgb(242, 242, 245);
     border-radius: 10px;
@@ -18,13 +20,14 @@
     position: relative;
     display: flex;
     margin-left: 20px;
+    line-height: 50px;
 }
 
 .openMenu{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .arrowImg{
@@ -32,14 +35,14 @@
     position: absolute;
     height: 20px;
     width: auto;
-    top: 5px;
+    top: 15px;
     right: 15px;
-    rotate: 90deg;
+    transform: rotate(90deg);
 }
 
 .activeImg{
     transition: all ease 0.5s;
-    rotate: 270deg;
+    transform: rotate(270deg);
 }
 
 .genders{

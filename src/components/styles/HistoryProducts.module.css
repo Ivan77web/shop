@@ -1,6 +1,8 @@
 .history{
-    margin-top: 30px;
     padding-top: 30px;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
 .intro{
@@ -13,6 +15,8 @@
     display: flex;
     margin: 0 auto;
     margin-bottom: 40px;
+    max-width: 90%;
+    overflow-x: auto;
 }
 
 .introNot{

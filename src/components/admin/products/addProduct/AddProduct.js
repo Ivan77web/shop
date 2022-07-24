@@ -40,6 +40,7 @@ export default function AddProduct() {
             });
 
             await setDoc(doc(firestore, "productsBrand", `product_${productArticle}`), {
+                article: productArticle,
                 brand: productBrand
             });
 

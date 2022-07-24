@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./profile/Login";
 import Shop from "./shop/Shop";

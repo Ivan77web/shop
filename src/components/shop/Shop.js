@@ -5,6 +5,9 @@ import cl from "../styles/Shop.module.css"
 import Loader from "../UI/loader/Loader";
 import CardProduct from "./CardProduct";
 import Filters from "./Filters";
+import bg from "../../img/bg.jpg"
+import { Transition } from 'react-transition-group';
+import "../stylesForanimation/styleForAnimation.css"
 
 export default function Shop({ brandNavBar }) {
     const { firestore } = useContext(Context);
@@ -99,31 +102,45 @@ export default function Shop({ brandNavBar }) {
     }
 
     return (
-        <div className={cl.shop}>
-            <Filters
-                filterGender={filterGender} setFilterGender={setFilterGender}
-                startPrice={startPrice} setStartPrice={setStartPrice}
-                endPrice={endPrice} setEndPrice={setEndPrice}
-                rightBrand={rightBrand} setRightBrand={setRightBrand}
-            />
+        <div className={cl.shop + " " + "shop"}>
+            <img className={cl.bgBlock} src={bg} />
+
+            <div className={cl.filters}>
+                <Filters
+                    filterGender={filterGender} setFilterGender={setFilterGender}
+                    startPrice={startPrice} setStartPrice={setStartPrice}
+                    endPrice={endPrice} setEndPrice={setEndPrice}
+                    rightBrand={rightBrand} setRightBrand={setRightBrand}
+                />
+            </div>
 
             {
                 absence
                     ?
-                    <div className={cl.products}>
+                    <Transition
+                        in={absence}
+                        timeout={3000}
+                    >
                         {
-                            onlyArticles.map(article =>
-                                <CardProduct
-                                    key={article}
-                                    article={article}
-                                    cart={true}
-                                    mainFilter={mainFilter}
-                                    checkFilter={checkFilter}
-                                    searchRightProduct={searchRightProduct}
-                                />
-                            )
+                            state =>
+                                <div className={"products" + " " +state}>
+                                    <div className={cl.products}>
+                                        {
+                                            onlyArticles.map(article =>
+                                                <CardProduct
+                                                    key={article}
+                                                    article={article}
+                                                    cart={true}
+                                                    mainFilter={mainFilter}
+                                                    checkFilter={checkFilter}
+                                                    searchRightProduct={searchRightProduct}
+                                                />
+                                            )
+                                        }
+                                    </div>
+                                </div>
                         }
-                    </div>
+                    </Transition>
                     :
                     <div className={cl.introAbsence}>
                         К сожалению, по вашим критериям товаров нет

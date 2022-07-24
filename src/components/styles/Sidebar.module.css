@@ -54,7 +54,7 @@
 }
 
 .imgClose{
-    rotate: 90deg;
+    transform: rotate(90deg);
 }
 
 .imgClose{
@@ -67,4 +67,41 @@
 
 .active{
     display: none;
+}
+
+@media screen and (max-width: 860px) {
+    .sidebar{
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: fit-content;
+        left: 5%;
+        display: flex;
+        border-top: none;
+        border-right: 1px solid rgb(165, 165, 165);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .link, .linkProducts{
+        min-width: 80px;
+        margin-left: 35px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .linkToggle{
+        margin-left: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .sidebar{
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

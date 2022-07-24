@@ -5,53 +5,58 @@ import FilterPrice from "../filters/FilterPrice";
 import FilterBrand from "../filters/FilterBrand";
 import Cross from "../UI/icons/cross/Cross";
 import Search from "../UI/icons/search/Search";
+import { Transition } from 'react-transition-group';
+import "../stylesForanimation/styleForAnimation.css"
 
 
 export default function Filters({ filterGender, setFilterGender, startPrice, setStartPrice, endPrice, setEndPrice, rightBrand, setRightBrand }) {
-    const [size, setSize] = useState(true);
+    const [size, setSize] = useState(false);
     const resize = () => {
         setSize(!(size))
     }
 
-    if (!size) {
-        return (
-            <div className={cl.closeWindow} onClick={resize}>
-                <div className={cl.search}>
-                    <Search />
-                </div>
-            </div>
-        )
-    }
+    return (
 
-    if (size) {
-        return (
-            <div className={cl.filters}>
+        <Transition
+            in={size}
+            timeout={1000}
+        >
+            {
+                state =>
+                    <div className={cl.filters + " " + "filters" + " " + state}>
+                        <div className={cl.chahgeOfSize + " " + "animationChangeOfSize"} style={size ? {color: "black"} :  {display: "none"}}>
+        
+                            <FilterGender
+                                filterGender={filterGender}
+                                setFilterGender={setFilterGender}
+                            />
 
-                <div className={cl.chahgeOfSize}>
-                    <FilterGender
-                        filterGender={filterGender}
-                        setFilterGender={setFilterGender}
-                    />
+                            <FilterPrice
+                                startPrice={startPrice}
+                                setStartPrice={setStartPrice}
+                                endPrice={endPrice}
+                                setEndPrice={setEndPrice}
+                            />
 
-                    <div className={cl.cross} onClick={resize}>
-                        <Cross size="20px" />
+                            <FilterBrand
+                                rightBrand={rightBrand}
+                                setRightBrand={setRightBrand}
+                            />
+                        </div>
+
+                        {
+                            size
+                                ?
+                                <div className={cl.cross} onClick={resize}>
+                                    <Cross size="20px" />
+                                </div>
+                                :
+                                <div className={cl.search} onClick={resize}>
+                                    <Search />
+                                </div>
+                        }
                     </div>
-                </div>
-
-                <div className={cl.filtersBlock}>
-                    <FilterPrice
-                        startPrice={startPrice}
-                        setStartPrice={setStartPrice}
-                        endPrice={endPrice}
-                        setEndPrice={setEndPrice}
-                    />
-
-                    <FilterBrand
-                        rightBrand={rightBrand}
-                        setRightBrand={setRightBrand}
-                    />
-                </div>
-            </div>
-        )
-    }
+            }
+        </Transition>
+    )
 }

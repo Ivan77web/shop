@@ -10,7 +10,8 @@
     height: 5px;
     background: white;
     border-radius: 3px;
-    rotate: 45deg;
+    /* rotate: 45deg; */
+    transform: rotate(45deg);
 }
 
 .two{
@@ -21,5 +22,6 @@
     height: 5px;
     background: white;
     border-radius: 3px;
-    rotate: 135deg;
+    /* rotate: 135deg; */
+    transform: rotate(135deg);
 }

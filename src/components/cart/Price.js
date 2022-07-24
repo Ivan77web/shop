@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Context } from "../..";
-import cl from "../styles/Price.module.css"
 import Loader from "../UI/loader/Loader";
 
 export default function Price({user, product, price}) {
@@ -37,7 +36,7 @@ export default function Price({user, product, price}) {
     }
 
     return(
-        <div className={cl.price}>
+        <div style={{textAlign: "center"}}>
             {allPrice} руб.
         </div>
     )

@@ -3,13 +3,34 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Context } from "../..";
 import cl from "../styles/FilterBrand.module.css"
 import Loader from "../UI/loader/Loader";
-import MyInput from "../UI/MyInput";
 
 export default function FilterBrand({ rightBrand, setRightBrand }) {
     const { firestore } = useContext(Context);
     const [productsBrand, loading] = useCollectionData(
         firestore.collection("productsBrand")
     )
+    const [productsForShop, loadingTwo] = useCollectionData(
+        firestore.collection("productsForShop")
+    )
+
+    const [productsBrandRight, setProductsBrandRight] = useState([])
+
+    useEffect(() => {
+        let arrBrand = [];
+
+        if (!(loading) && !(loadingTwo)) {
+            productsForShop.map( article => {
+                productsBrand.map( prod => {
+                    if(article.article === prod.article){
+                        arrBrand.push(prod);
+                    }
+                })
+            })
+        }
+
+        setProductsBrandRight(arrBrand)
+    }, [productsBrand, productsForShop])
+
     const [sortBrand, setSortBrand] = useState([]); // массив всех брендов
     const [filteredBrands, setFilteredBrands] = useState([]); // Отфильтрованные бренды, то есть те самые подходящие бренды в меню
 
@@ -35,10 +56,10 @@ export default function FilterBrand({ rightBrand, setRightBrand }) {
     }
 
     useEffect(() => { // Функция для создания массива всех брендов
-        if (productsBrand) {
+        if (productsBrandRight) {
             let filterArr = [];
 
-            productsBrand.map(brand => {
+            productsBrandRight.map(brand => {
                 let flag = true;
 
                 for (let i = 0; i < filterArr.length; i++) {
@@ -54,7 +75,7 @@ export default function FilterBrand({ rightBrand, setRightBrand }) {
 
             setSortBrand(filterArr);
         }
-    }, [productsBrand])
+    }, [productsBrandRight])
 
     useEffect(() => {
         if (rightBrand === "") {

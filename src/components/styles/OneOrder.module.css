@@ -94,7 +94,8 @@
 .imgCross{
     height: 20px;
     width: auto;
-    rotate: 45deg;
+    /* rotate: 45deg; */
+    transform: rotate(45deg);
 }
 
 .buttonSave{

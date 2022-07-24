@@ -7,8 +7,15 @@ import Loader from "../UI/loader/Loader";
 export default function CardProduct({ article, mainFilter, checkFilter, searchRightProduct }) {
     const storage = getStorage();
     const [src, setSrc] = useState();
+    const [startAnimation, setStartAnimation] = useState(false);
 
     getDownloadURL(ref(storage, `photo_${article}`)).then((url) => setSrc(url));
+
+    useEffect(() => {
+        if (src) {
+            setStartAnimation(true)
+        }
+    }, [src])
 
     if (!(checkFilter(searchRightProduct(article), mainFilter))) {
         return (
@@ -16,9 +23,9 @@ export default function CardProduct({ article, mainFilter, checkFilter, searchRi
         )
     }
 
-    if(!src){
-        return(
-            <Loader/>
+    if (!src) {
+        return (
+            <Loader />
         )
     }
 

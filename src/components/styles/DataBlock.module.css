@@ -35,7 +35,6 @@
     margin-bottom: 15px;
     width: fit-content;
     height: fit-content;
-
 }
 
 .methodPayment p{
@@ -95,4 +94,30 @@
     margin: 0 auto;
     margin-top: 50px;
     padding-bottom: 50px;
+}
+
+@media screen and (max-width: 990px) {
+    .DataBlock{
+        min-width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .bankCard{
+        width: 320px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .bankCard{
+        width: 240px;
+        height: 200px;
+    }
+
+    .methodsPayment{
+        display: block;
+    }
 }

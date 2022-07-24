@@ -8,7 +8,8 @@
     left: 0;
     width: 100%;
     border: 1px solid black;
-    rotate: 45deg;
+    /* rotate: 45deg; */
+    transform: rotate(45deg);
 }
 
 .two{
@@ -17,5 +18,6 @@
     left: 0;
     width: 100%;
     border: 1px solid black;
-    rotate: 135deg;
+    /* rotate: 135deg; */
+    transform: rotate(135deg);
 }

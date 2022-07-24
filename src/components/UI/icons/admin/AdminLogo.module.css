@@ -5,6 +5,10 @@
     position: relative;
 }
 
+.admin:hover{
+    animation: rotate 2s infinite;
+}
+
 .circle{
     position: absolute;
     top: 6px;
@@ -33,47 +37,61 @@
     position: absolute;
     left: 12px;
     bottom: 1px;
-    rotate: 180deg;
+    transform: rotate(180deg);
 }
 
 .partThree{
     position: absolute;
     left: 3px;
     top: 10px;
-    rotate: 270deg;
+    transform: rotate(270deg);
 }
 
 .partFour{
     position: absolute;
     right: 3px;
     top: 10px;
-    rotate: 90deg;
+    transform: rotate(90deg);
 }
 
 .partFive{
     position: absolute;
     right: 4px;
     top: 3px;
-    rotate: 45deg;
+    transform: rotate(45deg);
 }
 
 .partSix{
     position: absolute;
     left: 4px;
     top: 3px;
-    rotate: 315deg;
+    transform: rotate(315deg);
 }
 
 .partSeven{
     position: absolute;
     right: 4px;
     bottom: 3px;
-    rotate: 135deg;
+    transform: rotate(135deg);
 }
 
 .partEight{
     position: absolute;
     left: 4px;
     bottom: 3px;
-    rotate: 225deg;
+    transform: rotate(225deg);
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(180deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
 }
