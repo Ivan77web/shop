@@ -35,7 +35,6 @@
 
 .photoArrowOpen{
     margin-right: 10px;
-    /* rotate: 90deg; */
     transform: rotate(90deg);
     margin-top: 3px;
     height: 15px;
@@ -51,8 +50,63 @@
 .tableProduct{
     margin-left: 10px;
     margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.tableProductColOne{
+    width: 500px;
+}
+
+.tableProductColTwo{
+    width: 100px;
+}
+
+.tableProductColThree{
+    width: 100px;
+}
+
+.tableData{
+    margin-left: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
 }
 
 .active{
     display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .tables{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .tableProductColOne{
+        width: 300px;
+    }
+    
+    .tableProductColTwo{
+        width: 100px;
+    }
+    
+    .tableProductColThree{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .numberOrder{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .numberOrder{
+        width: 100%;
+        overflow-x: scroll;
+    }
+    .order{
+        font-size: 12px;
+    }   
 }

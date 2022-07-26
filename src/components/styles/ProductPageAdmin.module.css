@@ -58,6 +58,11 @@
 
 .buttonEdit{
     margin-bottom: 20px;
+    color: rgb(145, 22, 22);
+}
+
+.buttonDelete, .buttonEdit{
+    color: rgb(145, 22, 22);
 }
 
 .buttons{
@@ -138,8 +143,11 @@
 .labels{
     position: relative;
     display: flex;
-    margin-top: 80px;
     width: calc(90% + 20px);
+    text-align: center;
+
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .label{
@@ -150,28 +158,23 @@
     border-radius: 10px;
     background: white;
     color: rgb(82, 82, 82);
-    text-align: center;
+    margin: 20px auto;
 }
 
 .labelNo{
-    margin-right: 10px;
+    letter-spacing: normal;
 }
 
 .labelNike{
     line-height: 40px;
-    margin-right: 10px;
-    margin-left: 10px;
 }
 
 .labelJordan{
     line-height: 40px;
-    margin-right: 10px;
-    margin-left: 10px;
 }
 
 .labelYeezy{
     line-height: 40px;
-    margin-left: 10px;
 }
 
 .activeLabel{
@@ -181,4 +184,45 @@
 
 .active{
     display: none;
+}
+
+@media screen and (max-width: 860px) {
+    .allProducts{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .intro{
+        text-align: center;
+    }
+
+    .filterInput{
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .products{
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .productCard{
+        font-size: 12px;
+    }
+
+    .info{
+        width: 100%;
+    }
+
+    .data{
+        margin-left: 5px;
+        width: 100%;
+    }
+
+    .settings{
+        top: 70%;
+        left: 10px;
+    }
 }

@@ -212,35 +212,37 @@ export default function AddProduct() {
         <div className={cl.allWindow}>
             <div className={cl.addProduct}>
 
-                <AddPhotoProducts setProductPhoto={setProductPhoto} />
+                <div className={cl.addPhotoBlock}>
+                    <AddPhotoProducts setProductPhoto={setProductPhoto} />
+                </div>
 
                 <div className={cl.dataProduct}>
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Бренд товара" fontSize="18px" value={productBrand} onChange={validateBrand} />
+                        <MyInput width="95%" height="15px" name="Бренд товара" fontSize="18px" value={productBrand} onChange={validateBrand} />
                     </div>
 
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Модель товара" fontSize="18px" value={productModel} onChange={validateModel} />
+                        <MyInput width="95%" height="15px" name="Модель товара" fontSize="18px" value={productModel} onChange={validateModel} />
                     </div>
 
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Цена товара" fontSize="18px" value={productPrice} onChange={validatePrice} />
+                        <MyInput width="95%" height="15px" name="Цена товара" fontSize="18px" value={productPrice} onChange={validatePrice} />
                     </div>
 
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Размеры товара (38,39,40...)" fontSize="18px" value={productSize} onChange={validateSize} />
+                        <MyInput width="95%" height="15px" name="Размеры товара (38,39,40...)" fontSize="18px" value={productSize} onChange={validateSize} />
                     </div>
 
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Описание товара" fontSize="18px" value={productIntro} onChange={validateIntro} />
+                        <MyInput width="95%" height="15px" name="Описание товара" fontSize="18px" value={productIntro} onChange={validateIntro} />
                     </div>
 
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Артикул товара" fontSize="18px" value={productArticle} onChange={validateArticle} />
+                        <MyInput width="95%" height="15px" name="Артикул товара" fontSize="18px" value={productArticle} onChange={validateArticle} />
                     </div>
 
                     <div className={cl.oneInputBlock}>
-                        <MyInput width="100%" height="15px" name="Дата релиза товара" fontSize="18px" value={productDate} onChange={validateDate} />
+                        <MyInput width="95%" height="15px" name="Дата релиза товара" fontSize="18px" value={productDate} onChange={validateDate} />
                     </div>
 
                     <div className={cl.genders}>

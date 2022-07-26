@@ -27,3 +27,25 @@
     margin-top: 30px;
     font-size: 20px;
 }
+
+@media screen and (max-width: 860px) {
+    .allProducts{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .intro{
+        text-align: center;
+    }
+
+    .filterInput{
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .products{
+        margin: 0 auto;
+        width: 90%;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Link } from "react-router-dom";
 import cl from "../styles/CardProduct.module.css"
@@ -7,15 +7,8 @@ import Loader from "../UI/loader/Loader";
 export default function CardProduct({ article, mainFilter, checkFilter, searchRightProduct }) {
     const storage = getStorage();
     const [src, setSrc] = useState();
-    const [startAnimation, setStartAnimation] = useState(false);
 
     getDownloadURL(ref(storage, `photo_${article}`)).then((url) => setSrc(url));
-
-    useEffect(() => {
-        if (src) {
-            setStartAnimation(true)
-        }
-    }, [src])
 
     if (!(checkFilter(searchRightProduct(article), mainFilter))) {
         return (

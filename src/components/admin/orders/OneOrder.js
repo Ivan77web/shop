@@ -87,8 +87,8 @@ export default function OneOrder({id, filter}) {
                     <div className={cl.mainData}>
                         <table className={cl.tableData}>
     
-                            <col style={{width: "200px"}}/>
-                            <col style={{width: "400px"}}/>
+                            <col className={cl.dataColOne}/>
+                            <col className={cl.dataColTwo}/>
                 
                             <tbody>
     
@@ -133,10 +133,11 @@ export default function OneOrder({id, filter}) {
                             <h4 style={{marginBottom: "30px"}}>Товары</h4>
     
                             <table className={cl.tableProducts}>
-    
-                                <col style={{width: "350px"}}/>
-                                <col style={{width: "100px"}}/>
-                                <col style={{width: "100px"}}/>
+
+                                <col className={cl.productsColOne}/>
+                                <col className={cl.productsColTwo}/>
+                                <col className={cl.productsColThree}/>
+                                
     
                                 <thead>
                                     <tr>
@@ -196,11 +197,11 @@ export default function OneOrder({id, filter}) {
                         <div className={cl.buttonsEdit}>
     
                             <div onClick={e => cancel(e)} className={cl.buttonCancel}>
-                                <WhiteCross size="40px"/>
+                                <WhiteCross size="20px"/>
                             </div>
     
                             <div onClick={save} className={cl.buttonSave}>
-                                <Tick size="40px"/>
+                                <Tick size="20px"/>
                             </div>
                         </div>
                     </div>

@@ -8,10 +8,6 @@
     width: 80%;
 }
 
-.sidebar{
-    
-}
-
 @media screen and (max-width: 860px) {
     .admin{
         display: block;

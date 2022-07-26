@@ -11,8 +11,11 @@
 }
 
 .filters{
-    width: 960px;
+    width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .oneFilter{

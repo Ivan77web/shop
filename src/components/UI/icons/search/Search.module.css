@@ -18,6 +18,5 @@
     top: 14px;
     left: 19px;
     border: 1px solid black;
-    /* rotate: 135deg; */
     transform: rotate(135deg);
 }

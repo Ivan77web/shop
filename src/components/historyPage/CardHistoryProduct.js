@@ -7,8 +7,6 @@ export default function CardHistoryProduct({ article, search }) {
     const [src, setSrc] = useState();
     getDownloadURL(ref(storage, `photo_${article}`)).then((url) => setSrc(url));
 
-    // console.log(article);
-
     return (
         <a href={`/shop/${article}`}>
             <div className={cl.card}>

@@ -8,7 +8,6 @@ import Search from "../UI/icons/search/Search";
 import { Transition } from 'react-transition-group';
 import "../stylesForanimation/styleForAnimation.css"
 
-
 export default function Filters({ filterGender, setFilterGender, startPrice, setStartPrice, endPrice, setEndPrice, rightBrand, setRightBrand }) {
     const [size, setSize] = useState(false);
     const resize = () => {
@@ -16,7 +15,6 @@ export default function Filters({ filterGender, setFilterGender, startPrice, set
     }
 
     return (
-
         <Transition
             in={size}
             timeout={1000}
@@ -24,8 +22,8 @@ export default function Filters({ filterGender, setFilterGender, startPrice, set
             {
                 state =>
                     <div className={cl.filters + " " + "filters" + " " + state}>
-                        <div className={cl.chahgeOfSize + " " + "animationChangeOfSize"} style={size ? {color: "black"} :  {display: "none"}}>
-        
+                        <div className={cl.chahgeOfSize + " " + "animationChangeOfSize"} style={size ? { color: "black" } : { display: "none" }}>
+
                             <FilterGender
                                 filterGender={filterGender}
                                 setFilterGender={setFilterGender}

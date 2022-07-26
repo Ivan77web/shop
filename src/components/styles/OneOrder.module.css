@@ -15,22 +15,44 @@
 }
 
 .intro{
-    margin-top: 10px;
+    padding-top: 10px;
     margin-bottom: 10px;
     font-size: 14px;
     text-align: center;
+}
+
+.dataColOne{
+    width: 200px;
+}
+
+.dataColTwo{
+    width: 400px;
 }
 
 .products{
     margin-top: 30px;
 }
 
+.productsColOne{
+    width: 350px;
+}
+
+.productsColTwo{
+    width: 100px;
+}
+
+.productsColThree{
+    width: 100px;
+}
+
 .tableProducts{
     margin-bottom: 30px;
+    text-align: left;
 }
 
 .status{
-    color: black;
+    margin-top: 50px;
+    margin-right: 10px;
 }
 
 .statusBlock{
@@ -41,6 +63,10 @@
     border-radius: 10px;
     text-align: center;
     line-height: 50px;
+}
+
+.allStatuses{
+    height: fit-content;
 }
 
 .buttonEdit{
@@ -75,14 +101,14 @@
 .buttonsEdit{
     position: relative;
     display: flex;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .buttonCancel{
     position: absolute;
     left: 0;
     cursor: pointer;
-    width: 90px;
+    width: 50px;
     height: 40px;
     background: rgb(145, 22, 22);
     border-radius: 10px;
@@ -94,7 +120,6 @@
 .imgCross{
     height: 20px;
     width: auto;
-    /* rotate: 45deg; */
     transform: rotate(45deg);
 }
 
@@ -102,7 +127,7 @@
     position: absolute;
     right: 0;
     cursor: pointer;
-    width: 90px;
+    width: 50px;
     height: 40px;
     background: rgb(22, 145, 53);
     border-radius: 10px;
@@ -118,4 +143,54 @@
 
 .active{
     display: none;
+}
+
+@media screen and (max-width: 1320px) {
+    .statusBlock{
+        font-size: 12px;
+        width: 140px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .cardOrder{
+        display: block;
+        padding-bottom: 10px;
+    }
+
+    .tableData, .data, .tableProducts{
+        width: 100%;
+    }
+
+    .dataColOne, .dataColTwo{
+        width: 50%;
+    }
+
+    .productsColOne, .productsColTwo, .productsColThree{
+        width: 33%;
+    }
+
+    .status, .statusBlock{
+        width: 200px;
+    }
+
+    .buttonEdit{
+        width: 212px;
+    }
+
+    .buttonsEdit{
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .cardOrder{
+        font-size: 12px;
+    }
+
+    .intro{
+        font-size: 12px;
+        max-width: 100%;
+        overflow-x: scroll;
+    }
 }

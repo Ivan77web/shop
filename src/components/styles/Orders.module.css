@@ -1,8 +1,7 @@
 .orders{
     position: relative;
-    width: 80%;
+    width: 100%;
     min-height: calc(100vh - 59px);
-
 }
 
 .intro{
@@ -13,7 +12,7 @@
 }
 
 .filters{
-    height: 180px;
+    height: fit-content;
     width: 90%;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -35,12 +34,23 @@
     color: rgb(82, 82, 82);;
 }
 
+.statuses{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+}
+
 .oneFilter{
+    width: 120px;
     border: 1px solid rgb(165, 165, 165);
     border-radius: 10px;
     text-align: center;
     padding: 5px;
-    color: rgb(82, 82, 82);;
+    margin: 5px;
+    color: rgb(82, 82, 82);
 }
 
 .oneFilter:hover{

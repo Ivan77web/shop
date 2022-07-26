@@ -74,9 +74,9 @@ export default function Order({ order, buttonStatus}) {
                 <div className={cl.tables}>
 
                     <table className={cl.tableProduct}>
-                        <col style={{width: "500px"}}/>
-                        <col style={{width: "100px"}}/>
-                        <col style={{width: "100px"}}/>
+                        <col className={cl.tableProductColOne}/>
+                        <col className={cl.tableProductColTwo}/>
+                        <col className={cl.tableProductColThree}/>
 
                         <thead>
                             <tr>
@@ -90,7 +90,7 @@ export default function Order({ order, buttonStatus}) {
                             {
                                 dataOrder[0].products.map(product =>
                                     <tr key={product.article}>
-                                        <td style={{textAlign: "center"}}>
+                                        <td>
                                             {searchByArticle(product.article).brand + " " + searchByArticle(product.article).model}
                                         </td>
                                         <td style={{textAlign: "center"}}>{product.size}</td>

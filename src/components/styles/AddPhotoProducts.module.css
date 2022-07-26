@@ -49,3 +49,29 @@
 .active{
     display: none;
 }
+
+@media screen and (max-width: 750px) {
+    .addPhotoProducts{
+        width: 300px;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    .blockPhoto{
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .addPhotoProducts{
+        width: 180px;
+        height: 180px;
+    }
+
+    .blockPhoto{
+        width: 180px;
+        height: 180px;
+    }
+}

@@ -11,17 +11,10 @@
     animation: openFilters 0.5s forwards;
 }
 
-.filters.entering .animationChangeOfSize{
-    display: none;
-}
-
 .filters.entered{
     margin-left: 5%;
     background: white;
-}
-
-.filters.entered .animationChangeOfSize{
-    display: flex;
+    width: 90%;
 }
 
 .filters.exiting{
@@ -29,15 +22,23 @@
     animation: closeFilters 0.5s forwards;
 }
 
-.filters.exeting .animationChangeOfSize{
-    display: none;
-}
-
 .filters.exited{
     width: 100px;
     margin-left: calc(50% - 50px);
     background: none;
     box-shadow: none;
+}
+
+.filters.entering .animationChangeOfSize{
+    display: none;
+}
+
+.filters.entered .animationChangeOfSize{
+    display: flex;
+}
+
+.filters.exeting .animationChangeOfSize{
+    display: none;
 }
 
 .filters.exited .animationChangeOfSize{
