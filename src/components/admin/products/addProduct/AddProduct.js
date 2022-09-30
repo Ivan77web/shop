@@ -22,6 +22,7 @@ export default function AddProduct() {
     const storage = getStorage();
 
     const addProduct = async () => {
+        console.log(productPhoto);
         if (productPhoto && productBrand && productModel && productPrice && productSize && productIntro && productArticle && productDate && productGender && productLabel) {
             await setDoc(doc(firestore, "products", `product_${productArticle}`), {
                 brand: productBrand,
